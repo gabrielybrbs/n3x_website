@@ -24,6 +24,7 @@ Principais características:
 ```text
 .
 ├── index.html
+├── script.js
 ├── styles.css
 ├── README.md
 └── assets/
@@ -44,11 +45,12 @@ Principais características:
 
 ### Arquivos principais
 
-| Arquivo       | Responsabilidade                                                          |
-| ------------- | ------------------------------------------------------------------------- |
-| `index.html`  | Conteúdo, estrutura semântica, SVG decorativo e interações em JavaScript. |
-| `styles.css`  | Tokens visuais, layout, responsividade, estados e animações.              |
-| `README.md`   | Documentação de uso e manutenção.                                         |
+| Arquivo      | Responsabilidade                                             |
+| ------------ | ------------------------------------------------------------ |
+| `index.html` | Conteúdo, estrutura semântica e SVG decorativo.              |
+| `styles.css` | Tokens visuais, layout, responsividade, estados e animações. |
+| `script.js`  | Menu móvel, observadores e interações de cursor e rolagem.   |
+| `README.md`  | Documentação de uso e manutenção.                            |
 
 ### Assets
 
@@ -160,7 +162,7 @@ As famílias também são centralizadas em `:root` por meio de `--font-display`,
 
 ## Animações e interações
 
-O JavaScript está no final de `index.html` e não depende de bibliotecas externas.
+O JavaScript está separado em `script.js`, carregado no final de `index.html`, e não depende de bibliotecas externas.
 
 ### Menu móvel
 
