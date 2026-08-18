@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>N3X | Software &amp; Infrastructure</title>
+<meta name="description" content="N3X conecta desenvolvimento, infraestrutura e monitoramento em uma só experiência." />
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png?v=2">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png?v=2">
+<link rel="apple-touch-icon" sizes="192x192" href="assets/icons/favicon-192.png?v=2">
+
+<!--
+  ============================================================================
+  N3X — LANDING PAGE
+  ============================================================================
+  Estrutura HTML com estilos externos em styles.css, pronta para deploy em
+  qualquer host estático (Vercel, Netlify, GitHub Pages, S3, etc).
+
+  Ver README.md (entregue junto) para:
+   - explicação de cada seção
+   - onde trocar conteúdo placeholder por conteúdo real
+   - como os tokens de marca (cor/tipografia) foram definidos
+  ============================================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ==========================================================================
+     HEADER
+     ========================================================================== -->
+<header>
+  <div class="wrap nav-inner">
+    <a href="#top" class="logo" aria-label="N3X — início">
+      <img src="assets/brand/n3x-wordmark-transparent.png" alt="N3X">
+      <span>Software &amp; Infrastructure</span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#significado">O que é N3X</a>
+      <a href="#pilares">Pilares</a>
+      <a href="#compromisso">Como atuamos</a>
+      <a href="#contato" class="nav-contact">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ==========================================================================
+       HERO
+       ========================================================================== -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Software &amp; Infrastructure</span>
+        <h1>Código, infraestrutura e <span class="grad-text">observabilidade</span> em uma só experiência.</h1>
+        <p class="lede">
+          A N3X desenha, constrói e mantém os sistemas por trás da operação de um negócio,
+          do primeiro commit ao monitoramento em produção.
+        </p>
+        <div class="hero-tagline">
+          <span>Código</span><span>Infraestrutura</span><span>Observabilidade</span><span>Experiência</span>
+        </div>
+      </div>
+
+      <!-- assinatura visual: malha de nós que se resolve na letra X -->
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 400 400">
+          <defs>
+            <linearGradient id="xGradientA" x1="105" y1="105" x2="295" y2="295" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="var(--blue)" />
+              <stop offset=".5" stop-color="var(--cyan)" />
+              <stop offset="1" stop-color="var(--purple)" />
+            </linearGradient>
+            <linearGradient id="xGradientB" x1="295" y1="105" x2="105" y2="295" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="var(--purple)" />
+              <stop offset=".5" stop-color="var(--cyan)" />
+              <stop offset="1" stop-color="var(--blue)" />
+            </linearGradient>
+            <pattern id="dotGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+              <circle cx="1" cy="1" r="1" fill="var(--text-muted)" />
+            </pattern>
+            <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
+              <feGaussianBlur stdDeviation="5" />
+            </filter>
+          </defs>
+
+          <rect class="circuit-grid" x="20" y="20" width="360" height="360" rx="180" fill="url(#dotGrid)" />
+          <circle class="orbit orbit-outer" cx="200" cy="200" r="142" />
+          <circle class="orbit orbit-inner" cx="200" cy="200" r="92" />
+
+          <!-- circuitos externos conectam a malha ao núcleo -->
+          <path class="net-line mesh" d="M28 120 H78 L112 154" />
+          <path class="net-line mesh" d="M372 118 H322 L288 152" />
+          <path class="net-line mesh" d="M28 280 H78 L112 246" />
+          <path class="net-line mesh" d="M372 282 H322 L288 248" />
+          <path class="net-line mesh" d="M118 28 V72 L152 108" />
+          <path class="net-line mesh" d="M282 372 V328 L248 292" />
+
+          <!-- sinais percorrem dois circuitos em sentidos opostos -->
+          <path class="signal-line signal-one" d="M28 120 H78 L112 154 L200 242 L288 330 H350" />
+          <path class="signal-line signal-two" d="M372 118 H322 L288 152 L200 240 L112 328 H50" />
+
+          <!-- X central com dupla camada para profundidade -->
+          <path class="x-glow" d="M112 108 L292 292" />
+          <path class="x-glow" d="M292 108 L108 292" />
+          <path class="net-line x-main x-a" d="M112 108 L292 292" />
+          <path class="net-line x-main x-b" d="M292 108 L108 292" />
+
+          <circle class="core-halo" cx="200" cy="200" r="24" />
+          <circle class="core-ring" cx="200" cy="200" r="12" />
+          <circle class="net-node net-node-5" cx="200" cy="200" r="4" fill="var(--cyan)" />
+
+          <!-- nós pulsantes nos pontos de conexão -->
+          <circle class="net-node net-node-1" cx="112" cy="108" r="3.2" fill="var(--blue)" />
+          <circle class="net-node net-node-2" cx="292" cy="108" r="3.2" fill="var(--purple)" />
+          <circle class="net-node net-node-3" cx="292" cy="292" r="3.2" fill="var(--purple)" />
+          <circle class="net-node net-node-4" cx="108" cy="292" r="3.2" fill="var(--blue)" />
+          <circle class="net-node net-node-6" cx="28" cy="120" r="2.6" fill="var(--cyan)" />
+          <circle class="net-node net-node-7" cx="372" cy="282" r="2.6" fill="var(--cyan)" />
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       O QUE SIGNIFICA N3X — estrutura literal N / 3 / X
+       ========================================================================== -->
+  <section class="meaning" id="significado">
+    <div class="wrap">
+      <span class="eyebrow">O nome</span>
+      <h2 class="section-title">O que significa N3X</h2>
+      <p class="section-lede">Cada parte do nome carrega um compromisso. Não é só uma marca, é a forma como a gente trabalha.</p>
+
+      <div class="meaning-grid">
+        <div class="meaning-item">
+          <span class="meaning-letter">N</span>
+          <h3>Network</h3>
+          <p>Conectamos sistemas, times e processos. Nada opera isolado.</p>
+        </div>
+        <div class="meaning-item">
+          <span class="meaning-letter">3</span>
+          <h3>Três pilares</h3>
+          <p>Desenvolvimento, infraestrutura e monitoramento, sustentando a mesma operação.</p>
+        </div>
+        <div class="meaning-item">
+          <span class="meaning-letter">X</span>
+          <h3>Execução</h3>
+          <p>Transformamos tecnologia em experiência e resultado mensurável.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PILARES — conteúdo extraído diretamente do manual de marca
+       ========================================================================== -->
+  <section class="pillars" id="pilares">
+    <div class="wrap">
+      <div class="pillars-head">
+        <div>
+          <span class="eyebrow">O que fazemos</span>
+          <h2 class="section-title">Três pilares, uma operação</h2>
+          <p class="section-lede">Cada pilar resolve uma parte do problema. Juntos, sustentam a disponibilidade de ponta a ponta.</p>
+        </div>
+      </div>
+
+      <div class="pillars-grid">
+        <!-- Desenvolvimento -->
+        <article class="pillar-card">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5 3 12l5 7M16 5l5 7-5 7"/></svg>
+          </div>
+          <h3>Desenvolvimento</h3>
+          <p>Soluções de software modernas, escaláveis e seguras, construídas para durar.</p>
+          <ul class="pillar-list">
+            <li>Aplicações web</li>
+            <li>APIs e integrações</li>
+            <li>Sistemas personalizados</li>
+          </ul>
+        </article>
+
+        <!-- Infraestrutura -->
+        <article class="pillar-card">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="6" rx="1.4"/><rect x="4" y="14" width="16" height="6" rx="1.4"/><circle cx="8" cy="7" r=".6" fill="currentColor" stroke="none"/><circle cx="8" cy="17" r=".6" fill="currentColor" stroke="none"/></svg>
+          </div>
+          <h3>Infraestrutura</h3>
+          <p>Ambientes robustos, seguros e de alta disponibilidade, na nuvem ou on-premise.</p>
+          <ul class="pillar-list">
+            <li>Cloud &amp; on-premise</li>
+            <li>Automação e deploy</li>
+            <li>Segurança e redes</li>
+          </ul>
+        </article>
+
+        <!-- Monitoramento -->
+        <article class="pillar-card">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="1.6"/><path d="M8 21h8M12 17v4"/><path d="M6 13l3-4 2.5 3L15 8l3 3"/></svg>
+          </div>
+          <h3>Monitoramento</h3>
+          <p>Visibilidade completa sobre performance, disponibilidade e métricas.</p>
+          <ul class="pillar-list">
+            <li>Observabilidade</li>
+            <li>Dashboards inteligentes</li>
+            <li>Alertas e análises</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       COMO ATUAMOS — seção institucional (conteúdo redigido, sem dado real
+       da empresa ainda — ver README para substituir)
+       ========================================================================== -->
+  <section class="commitment" id="compromisso">
+    <div class="wrap">
+      <span class="eyebrow">Como atuamos</span>
+      <h2 class="section-title">O que guia cada entrega</h2>
+
+      <div class="commitment-grid">
+        <div class="commitment-item">
+          <span class="num">01 / robustez</span>
+          <h3>Feito para durar em produção</h3>
+          <p>Cada sistema é pensado para operar sob carga real, não só para funcionar em demo.</p>
+        </div>
+        <div class="commitment-item">
+          <span class="num">02 / visibilidade</span>
+          <h3>Nada roda no escuro</h3>
+          <p>Se está em produção, está sendo observado. Métricas e alertas fazem parte da entrega, não são opcionais.</p>
+        </div>
+        <div class="commitment-item">
+          <span class="num">03 / proximidade</span>
+          <h3>Time pequeno, resposta direta</h3>
+          <p>Você fala com quem constrói o sistema, sem camadas de atendimento no meio do caminho.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CTA INSTITUCIONAL (discreto, sem apelo comercial forte)
+       ========================================================================== -->
+  <section class="cta-band">
+    <div class="wrap cta-inner">
+      <h2>Quer entender como a N3X pode se encaixar na sua operação?</h2>
+      <a class="cta-link" href="mailto:contato@n3x.dev">
+        contato@n3x.dev
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==========================================================================
+     FOOTER
+     ========================================================================== -->
+<footer id="contato">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="logo footer-logo" aria-label="N3X — início">
+          <img src="assets/brand/n3x-wordmark-transparent.png" alt="N3X">
+          <span>Software &amp; Infrastructure</span>
+        </a>
+        <p>Soluções que impulsionam o futuro com tecnologia. Desenvolvimento, infraestrutura e monitoramento em uma só experiência.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#significado">O que é N3X</a></li>
+          <li><a href="#pilares">Pilares</a></li>
+          <li><a href="#compromisso">Como atuamos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contato <span class="placeholder-flag">placeholder</span></h4>
+        <ul>
+          <li><a href="mailto:contato@n3x.dev">contato@n3x.dev</a></li>
+          <li><span>+55 11 99999-9999</span></li>
+          <li><a href="https://n3x.dev" target="_blank" rel="noopener">n3x.dev</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 N3X | Software &amp; Infrastructure</span>
+      <span>Código · Infraestrutura · Observabilidade · Experiência</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Menu mobile — toggle simples, sem dependências
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Entrada progressiva ao rolar, com atraso curto entre itens do mesmo grupo
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    document.documentElement.classList.add('motion-ready');
+    const revealItems = document.querySelectorAll(
+      '.section-title, .section-lede, .meaning-item, .pillar-card, .commitment-item, .cta-inner'
+    );
+    revealItems.forEach((item, index) => {
+      item.classList.add('reveal');
+      item.style.setProperty('--reveal-delay', `${(index % 3) * 90}ms`);
+    });
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -45px' });
+
+    revealItems.forEach(item => revealObserver.observe(item));
+  }
+
+  // Profundidade sutil no diagrama principal e luz que acompanha o cursor
+  if (!reduceMotion && window.matchMedia('(pointer: fine)').matches) {
+    const hero = document.querySelector('.hero');
+    const heroVisual = document.querySelector('.hero-visual');
+    hero.addEventListener('pointermove', event => {
+      const rect = hero.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      heroVisual.style.transform = `translate3d(${x * 14}px, ${y * 10}px, 0)`;
+    });
+    hero.addEventListener('pointerleave', () => {
+      heroVisual.style.transform = '';
+    });
+
+    document.querySelectorAll('.pillar-card').forEach(card => {
+      card.addEventListener('pointermove', event => {
+        const rect = card.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width;
+        const y = (event.clientY - rect.top) / rect.height;
+        card.style.setProperty('--pointer-x', `${x * 100}%`);
+        card.style.setProperty('--pointer-y', `${y * 100}%`);
+        card.style.transform = `perspective(800px) rotateX(${(0.5 - y) * 3}deg) rotateY(${(x - 0.5) * 3}deg) translateY(-4px)`;
+      });
+      card.addEventListener('pointerleave', () => {
+        card.style.transform = '';
+      });
+    });
+  }
+
+  // Destaca na navegação a seção atualmente visível
+  const sections = document.querySelectorAll('main section[id], footer[id]');
+  const sectionLinks = [...navLinks.querySelectorAll('a[href^="#"]')];
+  if ('IntersectionObserver' in window) {
+    const navObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        sectionLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
+        });
+      });
+    }, { rootMargin: '-35% 0px -55%' });
+    sections.forEach(section => navObserver.observe(section));
+  }
+</script>
+
+</body>
+</html>
