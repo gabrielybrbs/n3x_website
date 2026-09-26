@@ -258,7 +258,7 @@ O sufixo `?v=2` funciona como controle simples de cache. Ao substituir novamente
 
 Como o projeto é estático, pode ser publicado diretamente em GitHub Pages, Netlify, Vercel, Cloudflare Pages, Amazon S3/CloudFront ou qualquer servidor Nginx/Apache.
 
-O diretório publicado deve incluir `index.html`, `styles.css`, `assets/brand/n3x-wordmark-transparent.png` e os três arquivos de `assets/icons/`. A pasta `assets/source/` e `assets/brand/n3x-symbol.png` são fontes de trabalho e podem ser omitidas do pacote de produção.
+O diretório publicado deve incluir `index.html`, `styles.css`, `script.js`, `assets/brand/n3x-wordmark-transparent.png` e os três arquivos de `assets/icons/`. A pasta `assets/source/` e `assets/brand/n3x-symbol.png` são fontes de trabalho e podem ser omitidas do pacote de produção.
 
 Não existe etapa de build. O arquivo de entrada é `index.html`.
 
@@ -273,7 +273,7 @@ Não existe etapa de build. O arquivo de entrada é `index.html`.
 - [ ] Verificar favicon em janela anônima para evitar cache antigo.
 - [ ] Revisar título e descrição para SEO.
 - [ ] Otimizar imagens caso o tamanho final aumente.
-- [ ] Publicar `index.html`, `styles.css`, `assets/brand/n3x-wordmark-transparent.png` e `assets/icons/` juntos.
+- [ ] Publicar `index.html`, `styles.css`, `script.js`, `assets/brand/n3x-wordmark-transparent.png` e `assets/icons/` juntos.
 
 ## Compatibilidade
 
