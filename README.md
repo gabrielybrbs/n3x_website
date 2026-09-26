@@ -262,6 +262,12 @@ O diretório publicado deve incluir `index.html`, `styles.css`, `assets/brand/n3
 
 Não existe etapa de build. O arquivo de entrada é `index.html`.
 
+### GitHub Pages
+
+O workflow `.github/workflows/pages.yml` publica o site a cada push na `main` (ou manualmente pela aba Actions). Ele copia para o pacote apenas `index.html`, `styles.css`, `script.js`, `assets/brand/n3x-wordmark-transparent.png` e `assets/icons/`, deixando `assets/source/` de fora.
+
+Para ativar, em **Settings → Pages**, escolha **GitHub Actions** como fonte. O domínio personalizado é configurado no mesmo painel, em **Custom domain**.
+
 ## Checklist antes de publicar
 
 - [ ] Substituir e-mail, telefone e domínio.

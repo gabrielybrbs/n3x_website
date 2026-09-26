@@ -1,0 +1,47 @@
+name: Deploy no GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Monta apenas os arquivos de produção; assets/source/ e o símbolo-mestre ficam de fora.
+      - name: Montar diretório publicado
+        run: |
+          mkdir -p _site/assets/brand _site/assets/icons
+          cp index.html styles.css script.js _site/
+          cp assets/brand/n3x-wordmark-transparent.png _site/assets/brand/
+          cp assets/icons/*.png _site/assets/icons/
+          touch _site/.nojekyll
+          find _site -type f | sort
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
