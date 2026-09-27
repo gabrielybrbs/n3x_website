@@ -113,7 +113,7 @@ Atualize também o `telephone` do JSON-LD em `index.html`.
 
 ### Redes sociais
 
-O Instagram está ativo. LinkedIn, Facebook e TikTok já estão prontos, comentados no rodapé (bloco `rodape`) e na seção Contato de `index.html`:
+As redes sociais aparecem só no rodapé. O Instagram está ativo. LinkedIn, Facebook e TikTok já estão prontos, comentados no bloco `rodape`:
 
 ```html
 <!-- REDES FUTURAS: descomente e preencha o link ...
@@ -190,7 +190,7 @@ Novos ícones podem vir do [Lucide](https://lucide.dev), com a mesma configuraç
 
 ### Cache de CSS e JS
 
-Os arquivos são chamados com `?v=12` (ex.: `css/components.css?v=12`) e a Vercel os guarda em cache por uma semana. **Ao alterar CSS ou JS, aumente o número** (`?v=13`) no bloco `head` de todas as páginas.
+Os arquivos são chamados com `?v=13` (ex.: `css/components.css?v=13`) e a Vercel os guarda em cache por uma semana. **Ao alterar CSS ou JS, aumente o número** (`?v=14`) no bloco `head` de todas as páginas.
 
 ### Adicionar uma seção
 

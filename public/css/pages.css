@@ -54,11 +54,11 @@
    ========================================================================== */
 .contato {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 720px;
   gap: var(--n3x-e-4);
 }
-/* Os dois cards têm a mesma estrutura (rótulo, título, texto, ações) e a
-   mesma altura; as ações ficam alinhadas na base de cada card. */
+/* Card de contato: rótulo, título, texto e ações alinhadas na base.
+   As redes sociais ficam só no rodapé. */
 .contato__card {
   display: flex;
   flex-direction: column;
@@ -77,7 +77,6 @@
 .aviso-privacidade a { color: var(--c-destaque); }
 
 @media (max-width: 899px) {
-  .contato { grid-template-columns: 1fr; }
   .contato__card { padding: var(--n3x-e-5); }
 }
 
