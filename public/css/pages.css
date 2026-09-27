@@ -54,31 +54,30 @@
    ========================================================================== */
 .contato {
   display: grid;
-  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--n3x-e-4);
-  align-items: start;
 }
-.contato__principal,
+/* Os dois cards têm a mesma estrutura (rótulo, título, texto, ações) e a
+   mesma altura; as ações ficam alinhadas na base de cada card. */
 .contato__card {
-  display: grid;
-  gap: var(--n3x-e-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--n3x-e-3);
   padding: var(--n3x-e-6);
   background: var(--c-painel);
   border: 1px solid var(--c-linha);
   border-radius: var(--n3x-raio-lg);
 }
-.contato__principal { border-color: var(--c-linha-forte); }
-.contato__principal p,
-.contato__card p { color: var(--c-texto-2); }
-.contato__principal h3,
+.contato__card--destaque { border-color: var(--c-linha-forte); }
 .contato__card h3 { font-size: var(--n3x-t-h3); }
+.contato__card p { color: var(--c-texto-2); }
+.contato__card .acoes { margin-top: auto; padding-top: var(--n3x-e-3); }
 
 .aviso-privacidade { margin-top: var(--n3x-e-6); max-width: 70ch; font-size: var(--n3x-t-pequeno); color: var(--c-texto-2); }
 .aviso-privacidade a { color: var(--c-destaque); }
 
 @media (max-width: 899px) {
   .contato { grid-template-columns: 1fr; }
-  .contato__principal,
   .contato__card { padding: var(--n3x-e-5); }
 }
 
