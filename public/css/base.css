@@ -7,10 +7,10 @@
 /* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 
-/* Altura do cabeçalho fixo: comporta o logo principal (mín. 200px de
-   largura pelo manual). Usada no cabeçalho, no menu mobile e nas âncoras. */
-:root { --altura-cabecalho: 100px; }
-@media (max-width: 599px) { :root { --altura-cabecalho: 92px; } }
+/* Altura do cabeçalho fixo (logo principal com 150px). Usada no
+   cabeçalho, no menu mobile e nas âncoras. */
+:root { --altura-cabecalho: 80px; }
+@media (max-width: 599px) { :root { --altura-cabecalho: 76px; } }
 
 html {
   -webkit-text-size-adjust: 100%;
@@ -84,8 +84,8 @@ p { text-wrap: pretty; }
 }
 @media (min-width: 600px) { .container { padding-inline: 32px; } }
 
-.secao { padding-block: var(--n3x-e-8); }
-@media (min-width: 900px) { .secao { padding-block: var(--n3x-e-9); } }
+.secao { padding-block: 56px; }
+@media (min-width: 900px) { .secao { padding-block: 80px; } }
 
 /* Seção alternada: o fundo mais profundo entra e sai em degradê, sem
    linhas nem degraus de cor entre uma seção e outra. */
@@ -104,7 +104,7 @@ p { text-wrap: pretty; }
   display: grid;
   gap: var(--n3x-e-3);
   max-width: 720px;
-  margin-bottom: var(--n3x-e-7);
+  margin-bottom: 40px;
 }
 .secao-cab .lede { margin-top: var(--n3x-e-1); }
 

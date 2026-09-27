@@ -6,7 +6,7 @@
    ========================================================================== */
 
 /* ---------- Faixa de chamada ---------- */
-.secao--faixa { padding-block: var(--n3x-e-8); }
+.secao--faixa { padding-block: 40px; }
 
 /* ==========================================================================
    O NOME — título à esquerda, símbolo X à direita
@@ -16,7 +16,7 @@
   grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
   gap: var(--n3x-e-6);
   align-items: center;
-  margin-bottom: var(--n3x-e-7);
+  margin-bottom: 40px;
 }
 .nome-topo .secao-cab { margin-bottom: 0; }
 

@@ -176,7 +176,7 @@ A referência é o [manual da marca](brand/n3x-identidade/n3x-manual-da-marca.ht
 | Rótulos e dados | IBM Plex Mono Medium 12 px, caixa alta, espaçamento 0,14em |
 | Grafismo | Cortes diagonais no ângulo do X (~54°) saindo por uma borda, sobre listras de no máximo 8% |
 | Ícones | Grade de 24 px, traço de 1,75 px, pontas retas (embutidos no bloco `cabecalho`) |
-| Logo | Principal (com slogan) no cabeçalho e no rodapé, mín. 200 px de largura. Nunca redesenhar, aplicar sombra ou brilho |
+| Logo | Principal (com slogan): 150 px no cabeçalho (decisão da N3X; o manual recomenda mín. 200 px) e 200 px no rodapé. Nunca redesenhar, aplicar sombra ou brilho |
 
 Para usar um ícone:
 
@@ -190,7 +190,7 @@ Novos ícones podem vir do [Lucide](https://lucide.dev), com a mesma configuraç
 
 ### Cache de CSS e JS
 
-Os arquivos são chamados com `?v=6` (ex.: `css/components.css?v=6`) e a Vercel os guarda em cache por uma semana. **Ao alterar CSS ou JS, aumente o número** (`?v=7`) no bloco `head` de todas as páginas.
+Os arquivos são chamados com `?v=7` (ex.: `css/components.css?v=7`) e a Vercel os guarda em cache por uma semana. **Ao alterar CSS ou JS, aumente o número** (`?v=8`) no bloco `head` de todas as páginas.
 
 ### Adicionar uma seção
 
