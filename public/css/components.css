@@ -57,14 +57,10 @@
   height: var(--altura-cabecalho);
 }
 
-/* Logo principal (com slogan) com 150px, por decisão da N3X. O manual
-   recomenda no mínimo 200px para esta versão (docs/decisoes.md). */
+/* Logo secundário (sem slogan), indicado pelo manual para cabeçalhos;
+   mínimo de 80px na tela. */
 .marca { display: inline-flex; flex-shrink: 0; }
-.marca img { width: 150px; height: auto; }
-
-@media (max-width: 359px) {
-  .cabecalho__barra { gap: var(--n3x-e-3); }
-}
+.marca img { width: 112px; height: auto; }
 
 .nav { margin-left: auto; }
 .nav__lista { display: flex; align-items: center; gap: var(--n3x-e-2); }

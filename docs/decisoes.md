@@ -30,7 +30,7 @@ Respostas às perguntas da auditoria (26/09/2026). Este é o documento de refer�
 - **Seção "O que significa N3X":** permanece, mais abaixo na página. A N3X considera importante transmitir o significado do nome.
 - **Equipe:** sem seção por enquanto.
 - **Ajustes visuais (27/09/2026), a pedido da N3X:**
-  - **Logo com slogan no cabeçalho.** O manual recomenda a versão secundária (sem slogan) para cabeçalhos. A N3X optou pela principal e depois pediu o logo menor: ficou com **150 px**, abaixo do mínimo de 200 px do manual, por decisão da N3X. Cabeçalho com 80 px de altura (76 px no celular).
+  - **Logo do cabeçalho.** A N3X testou a versão com slogan (200 px e depois 150 px) e voltou para a **secundária, sem slogan**, com 112 px, como o manual recomenda para cabeçalhos. Cabeçalho com 72 px de altura. O rodapé mantém a versão principal (com slogan), com 200 px.
   - **Focos de luz.** Manchas de luz radiais e estáticas nas seções após o hero, como no site anterior, em ciano, azul e um toque de lilás, afastadas das laterais e contidas na seção.
   - **Espaçamento reduzido entre seções:** 80 px no desktop e 56 px no celular (antes 112 px e 72 px).
   - **Sem linhas entre seções.** As bordas entre seções saíram; fundos alternados, rodapé e grafismo do hero passam de um para o outro em degradê.

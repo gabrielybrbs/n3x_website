@@ -7,10 +7,9 @@
 /* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 
-/* Altura do cabeçalho fixo (logo principal com 150px). Usada no
-   cabeçalho, no menu mobile e nas âncoras. */
-:root { --altura-cabecalho: 80px; }
-@media (max-width: 599px) { :root { --altura-cabecalho: 76px; } }
+/* Altura do cabeçalho fixo. Usada no cabeçalho, no menu mobile e nas
+   âncoras. */
+:root { --altura-cabecalho: 72px; }
 
 html {
   -webkit-text-size-adjust: 100%;
