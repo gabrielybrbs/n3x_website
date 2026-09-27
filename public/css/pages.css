@@ -44,8 +44,6 @@
 }
 .fato dd { color: var(--c-titulo); font-weight: 500; }
 
-.pronuncia { margin-top: var(--n3x-e-5); color: var(--c-texto-2); font-size: 15px; }
-.pronuncia b { color: var(--c-titulo); font-weight: 600; }
 
 @media (max-width: 899px) {
   .sobre { grid-template-columns: 1fr; }
@@ -70,18 +68,9 @@
   border-radius: var(--n3x-raio-lg);
 }
 .contato__principal { border-color: var(--c-linha-forte); }
-.contato__lateral { display: grid; gap: var(--n3x-e-4); }
-.contato__numero {
-  font-family: var(--n3x-f-titulo);
-  font-stretch: var(--n3x-largura-titulo);
-  font-size: clamp(26px, 3.2vw, 34px);
-  font-weight: 700;
-  color: var(--c-titulo);
-  font-variant-numeric: tabular-nums;
-  text-decoration: none;
-}
 .contato__principal p,
 .contato__card p { color: var(--c-texto-2); }
+.contato__principal h3,
 .contato__card h3 { font-size: var(--n3x-t-h3); }
 
 .aviso-privacidade { margin-top: var(--n3x-e-6); max-width: 70ch; font-size: var(--n3x-t-pequeno); color: var(--c-texto-2); }
