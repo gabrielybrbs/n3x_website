@@ -1,6 +1,21 @@
 # Plano de implementação
 
-Status: **aprovado e implementado** (27/09/2026, branch `reformulacao-identidade`). Baseado em [auditoria.md](auditoria.md) e [decisoes.md](decisoes.md).
+Status: **aprovado e implementado** (27/09/2026, branch `reformulacao-identidade`), revisado para página única (ver abaixo). Baseado em [auditoria.md](auditoria.md) e [decisoes.md](decisoes.md).
+
+## Revisão de 27/09/2026: página única e caminhos relativos
+
+Depois da primeira entrega, a N3X pediu duas mudanças:
+
+1. **Página única.** Serviços, Sobre e Contato viraram seções de `index.html`, e o menu navega por âncoras, com destaque da seção visível. `servicos.html`, `sobre.html` e `contato.html` foram removidos. Os cards de serviço passaram a incluir a descrição de cada item, que antes ficava na página Serviços.
+2. **Caminhos relativos.** Com caminhos absolutos (`/css/...`), o site aparecia sem estilo ao ser aberto direto no navegador ou pelo Live Server. Para funcionar em qualquer ambiente, foram feitas quatro mudanças:
+   - todos os caminhos passaram a ser relativos;
+   - os ícones foram embutidos no HTML (o SVG externo é bloqueado em `file://`);
+   - o `main.js` deixou de ser módulo (módulos são bloqueados em `file://`);
+   - o `scripts/verificar.py` passou a acusar caminhos absolutos.
+
+Limitação conhecida: na Vercel, a página 404 aparece sem estilo se o endereço inexistente tiver mais de um nível (ex.: `/a/b`). Endereços de um nível (`/qualquer-coisa`) funcionam normalmente. Como o site não tem subpastas, esse caso é raro.
+
+As seções abaixo descrevem a primeira versão (várias páginas) e ficam como histórico.
 
 ## Desvios em relação ao plano aprovado
 

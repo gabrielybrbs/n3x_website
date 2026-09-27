@@ -20,21 +20,21 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="N3X Software &amp; Infraestrutura">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/assets/favicon/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="/assets/favicon/favicon-32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="/assets/favicon/favicon-16.png" sizes="16x16" type="image/png">
-<link rel="apple-touch-icon" href="/assets/favicon/favicon-180.png">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="preload" href="/assets/fonts/archivo-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/fonts/ibm-plex-sans-latin-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/tokens.css?v=1">
-<link rel="stylesheet" href="/css/fonts.css?v=1">
-<link rel="stylesheet" href="/css/theme.css?v=1">
-<link rel="stylesheet" href="/css/base.css?v=1">
-<link rel="stylesheet" href="/css/components.css?v=1">
-<link rel="stylesheet" href="/css/pages.css?v=1">
-<script src="/js/tema-inicial.js?v=1"></script>
-<script type="module" src="/js/main.js?v=1"></script>
+<link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/favicon/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="assets/favicon/favicon-180.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preload" href="assets/fonts/archivo-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/ibm-plex-sans-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/tokens.css?v=2">
+<link rel="stylesheet" href="css/fonts.css?v=2">
+<link rel="stylesheet" href="css/theme.css?v=2">
+<link rel="stylesheet" href="css/base.css?v=2">
+<link rel="stylesheet" href="css/components.css?v=2">
+<link rel="stylesheet" href="css/pages.css?v=2">
+<script src="js/tema-inicial.js?v=2"></script>
+<script src="js/main.js?v=2" defer></script>
 <!-- ▲ BLOCO: head -->
 <script type="application/ld+json">
 {
@@ -66,31 +66,56 @@
 </head>
 <body>
 
-<!-- ▼ BLOCO: cabecalho (única diferença entre páginas: aria-current) -->
 <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- ▼ BLOCO: cabecalho (em outras páginas, os links "#..." viram "index.html#...") -->
+<!-- Ícones N3X: grade 24px, traço 1,75px, pontas retas (manual). Embutidos no
+     HTML para funcionar também ao abrir o arquivo direto no navegador.
+     Oficiais: desenvolvimento, infraestrutura, monitoramento, seguranca, nuvem,
+     suporte. Demais: Lucide no mesmo padrão.
+     Uso: <svg class="icone" aria-hidden="true"><use href="#i-nome"/></svg> -->
+<svg xmlns="http://www.w3.org/2000/svg" hidden aria-hidden="true">
+  <symbol id="i-desenvolvimento" viewBox="0 0 24 24"><path d="M8 7 3 12l5 5M16 7l5 5-5 5M13.5 4.5l-3 15"/></symbol>
+  <symbol id="i-infraestrutura" viewBox="0 0 24 24"><rect x="4" y="3.5" width="16" height="6" rx="1"/><rect x="4" y="14.5" width="16" height="6" rx="1"/><path d="M7.5 6.5h2M7.5 17.5h2M16 6.5h.5M16 17.5h.5M12 9.5v5"/></symbol>
+  <symbol id="i-monitoramento" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M6 11h3l1.5-3 3 6 1.5-3h3M9 20h6M12 16v4"/></symbol>
+  <symbol id="i-seguranca" viewBox="0 0 24 24"><path d="M12 3 5 6v5.5c0 4.2 3 7.6 7 9.5 4-1.9 7-5.3 7-9.5V6l-7-3Z"/><path d="m9 12 2.2 2.2L15.5 10"/></symbol>
+  <symbol id="i-nuvem" viewBox="0 0 24 24"><path d="M7 18.5h10.5a4 4 0 0 0 .6-7.96A6 6 0 0 0 6.5 10a4.25 4.25 0 0 0 .5 8.5Z"/></symbol>
+  <symbol id="i-suporte" viewBox="0 0 24 24"><path d="M4.5 13v-1a7.5 7.5 0 0 1 15 0v1"/><rect x="3.5" y="13" width="4" height="6" rx="1"/><rect x="16.5" y="13" width="4" height="6" rx="1"/><path d="M18.5 19c0 1.5-1.5 2-3.5 2h-2"/></symbol>
+  <symbol id="i-mensagem" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
+  <symbol id="i-local" viewBox="0 0 24 24"><path d="M20 10c0 5-5.5 10.2-7.4 11.8a1 1 0 0 1-1.2 0C9.5 20.2 4 15 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-seta" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-seta-externa" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  <symbol id="i-fechar" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-sol" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M6.3 17.7l-1.4 1.4M19.1 4.9l-1.4 1.4"/></symbol>
+  <symbol id="i-lua" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+</svg>
+
 <header class="cabecalho">
   <div class="container cabecalho__barra">
-    <a class="marca" href="/" aria-label="N3X, página inicial">
-      <img class="logo-escuro" src="/assets/logo/n3x-logo-secundario-fundo-escuro.svg" alt="" width="112" height="39">
-      <img class="logo-claro" src="/assets/logo/n3x-logo-secundario-fundo-claro.svg" alt="" width="112" height="39">
+    <a class="marca" href="#inicio" aria-label="N3X, início">
+      <img class="logo-escuro" src="assets/logo/n3x-logo-secundario-fundo-escuro.svg" alt="" width="112" height="39">
+      <img class="logo-claro" src="assets/logo/n3x-logo-secundario-fundo-claro.svg" alt="" width="112" height="39">
     </a>
     <nav class="nav" id="navegacao" aria-label="Principal">
       <ul class="nav__lista">
-        <li><a class="nav__link" href="/" aria-current="page">Início</a></li>
-        <li><a class="nav__link" href="/servicos">Serviços</a></li>
-        <li><a class="nav__link" href="/sobre">Sobre</a></li>
-        <li><a class="nav__link" href="/contato">Contato</a></li>
+        <li><a class="nav__link" href="#inicio">Início</a></li>
+        <li><a class="nav__link" href="#servicos">Serviços</a></li>
+        <li><a class="nav__link" href="#sobre">Sobre</a></li>
+        <li><a class="nav__link" href="#contato">Contato</a></li>
       </ul>
     </nav>
     <div class="cabecalho__acoes">
       <button class="botao-icone botao-tema" type="button" data-botao-tema aria-label="Alternar tema" hidden>
-        <svg class="icone icone-sol" aria-hidden="true"><use href="/assets/icons/sprite.svg#sol"/></svg>
-        <svg class="icone icone-lua" aria-hidden="true"><use href="/assets/icons/sprite.svg#lua"/></svg>
+        <svg class="icone icone-sol" aria-hidden="true"><use href="#i-sol"/></svg>
+        <svg class="icone icone-lua" aria-hidden="true"><use href="#i-lua"/></svg>
       </button>
       <a class="btn btn--primario btn--sm cabecalho__cta" href="https://wa.me/5596991878067?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20N3X%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">Fale conosco</a>
       <button class="botao-icone botao-menu" type="button" data-botao-menu aria-controls="navegacao" aria-expanded="false" aria-label="Abrir menu">
-        <svg class="icone icone-menu" aria-hidden="true"><use href="/assets/icons/sprite.svg#menu"/></svg>
-        <svg class="icone icone-fechar" aria-hidden="true"><use href="/assets/icons/sprite.svg#fechar"/></svg>
+        <svg class="icone icone-menu" aria-hidden="true"><use href="#i-menu"/></svg>
+        <svg class="icone icone-fechar" aria-hidden="true"><use href="#i-fechar"/></svg>
       </button>
     </div>
   </div>
@@ -99,8 +124,10 @@
 
 <main id="conteudo">
 
-  <!-- HERO — texto e composição do banner do kit digital -->
-  <section class="hero grafismo" aria-labelledby="hero-titulo">
+  <!-- ================================================================
+       INÍCIO — texto e composição do banner do kit digital
+       ================================================================ -->
+  <section class="hero grafismo" id="inicio" aria-labelledby="hero-titulo">
     <div class="container">
       <div class="hero__conteudo">
         <span class="rotulo">Software &amp; Infraestrutura</span>
@@ -108,10 +135,10 @@
         <p class="lede">Três pilares, uma só operação. Da primeira linha de código ao alerta de madrugada.</p>
         <div class="acoes">
           <a class="btn btn--primario btn--lg" href="https://wa.me/5596991878067?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20N3X%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">
-            <svg class="icone" aria-hidden="true"><use href="/assets/icons/sprite.svg#mensagem"/></svg>
+            <svg class="icone" aria-hidden="true"><use href="#i-mensagem"/></svg>
             Fale com a gente
           </a>
-          <a class="btn btn--secundario btn--lg" href="/servicos">Ver serviços</a>
+          <a class="btn btn--secundario btn--lg" href="#servicos">Ver serviços</a>
         </div>
       </div>
     </div>
@@ -140,57 +167,86 @@
     </div>
   </section>
 
-  <!-- SERVIÇOS — cards do kit digital -->
-  <section class="secao" aria-labelledby="servicos-titulo">
+  <!-- ================================================================
+       SERVIÇOS — cards do kit digital com a descrição de cada item
+       ================================================================ -->
+  <section class="secao" id="servicos" aria-labelledby="servicos-titulo">
     <div class="container">
       <div class="secao-cab" data-revelar>
         <span class="rotulo">Serviços</span>
         <h2 id="servicos-titulo">Três pilares, uma só operação.</h2>
-        <p class="lede">Desenvolvimento, infraestrutura e monitoramento em uma só entrega. Cada frente resolve uma parte do problema; juntas, sustentam a operação de ponta a ponta.</p>
+        <p class="lede">Atendemos empresas, órgãos públicos e pessoas físicas em todo o Brasil, do primeiro projeto à operação contínua.</p>
       </div>
 
       <div class="cards-servico" data-revelar>
-        <article class="card-servico">
-          <span class="icone-caixa"><svg class="icone" aria-hidden="true"><use href="/assets/icons/sprite.svg#desenvolvimento"/></svg></span>
-          <h3>Desenvolvimento</h3>
-          <p>Sites, sistemas e integrações sob medida.</p>
-          <ul class="lista-marcador">
-            <li>Aplicações web</li>
-            <li>APIs e integrações</li>
-            <li>Sistemas personalizados</li>
+        <article class="card-servico" id="desenvolvimento" aria-labelledby="desenvolvimento-titulo">
+          <span class="icone-caixa"><svg class="icone" aria-hidden="true"><use href="#i-desenvolvimento"/></svg></span>
+          <h3 id="desenvolvimento-titulo">Desenvolvimento</h3>
+          <p>Sites, sistemas e integrações sob medida, com código organizado, seguro e fácil de evoluir.</p>
+          <ul class="lista-servico">
+            <li><b>Aplicações web</b>Sites institucionais, portais e sistemas acessados pelo navegador.</li>
+            <li><b>APIs e integrações</b>Conexão entre sistemas, ERPs, meios de pagamento e serviços externos.</li>
+            <li><b>Sistemas personalizados</b>Ferramentas internas desenhadas para a rotina da sua operação.</li>
           </ul>
-          <a class="btn btn--texto" href="/servicos#desenvolvimento">Saiba mais <span class="sr-only">sobre Desenvolvimento</span><svg class="icone" aria-hidden="true"><use href="/assets/icons/sprite.svg#seta"/></svg></a>
         </article>
 
-        <article class="card-servico">
-          <span class="icone-caixa"><svg class="icone" aria-hidden="true"><use href="/assets/icons/sprite.svg#infraestrutura"/></svg></span>
-          <h3>Infraestrutura</h3>
-          <p>Ambientes estáveis, seguros e prontos para crescer.</p>
-          <ul class="lista-marcador">
-            <li>Cloud e on-premise</li>
-            <li>Automação e deploy</li>
-            <li>Segurança e redes</li>
+        <article class="card-servico" id="infraestrutura" aria-labelledby="infraestrutura-titulo">
+          <span class="icone-caixa"><svg class="icone" aria-hidden="true"><use href="#i-infraestrutura"/></svg></span>
+          <h3 id="infraestrutura-titulo">Infraestrutura</h3>
+          <p>Ambientes estáveis, seguros e prontos para crescer, planejados e mantidos pela nossa equipe.</p>
+          <ul class="lista-servico">
+            <li><b>Cloud e on-premise</b>Servidores em nuvem ou no seu próprio ambiente, dimensionados para a demanda.</li>
+            <li><b>Automação e deploy</b>Publicações padronizadas e repetíveis, com menos risco de erro manual.</li>
+            <li><b>Segurança e redes</b>Firewall, controle de acessos, backups e proteção de dados.</li>
           </ul>
-          <a class="btn btn--texto" href="/servicos#infraestrutura">Saiba mais <span class="sr-only">sobre Infraestrutura</span><svg class="icone" aria-hidden="true"><use href="/assets/icons/sprite.svg#seta"/></svg></a>
         </article>
 
-        <article class="card-servico">
-          <span class="icone-caixa"><svg class="icone" aria-hidden="true"><use href="/assets/icons/sprite.svg#monitoramento"/></svg></span>
-          <h3>Monitoramento</h3>
-          <p>Visibilidade em tempo real de tudo o que importa.</p>
-          <ul class="lista-marcador">
-            <li>Observabilidade</li>
-            <li>Painéis e alertas</li>
-            <li data-demo>Relatórios mensais</li>
+        <article class="card-servico" id="monitoramento" aria-labelledby="monitoramento-titulo">
+          <span class="icone-caixa"><svg class="icone" aria-hidden="true"><use href="#i-monitoramento"/></svg></span>
+          <h3 id="monitoramento-titulo">Monitoramento</h3>
+          <p>Visibilidade em tempo real de tudo o que importa, para agir antes que o problema chegue ao seu cliente.</p>
+          <ul class="lista-servico">
+            <li><b>Observabilidade</b>Métricas, logs e rastreamento para entender o comportamento dos sistemas.</li>
+            <li><b>Painéis e alertas</b>Indicadores claros e avisos imediatos quando algo sai do normal.</li>
+            <li data-demo><b>Relatórios mensais</b>Resumo de disponibilidade, incidentes e recomendações.</li>
           </ul>
-          <a class="btn btn--texto" href="/servicos#monitoramento">Saiba mais <span class="sr-only">sobre Monitoramento</span><svg class="icone" aria-hidden="true"><use href="/assets/icons/sprite.svg#seta"/></svg></a>
         </article>
       </div>
+
+      <!-- Painel ilustrativo — dados de demonstração (docs/decisoes.md) -->
+      <figure class="painel-demo painel-demo--servicos" data-revelar data-demo aria-labelledby="painel-legenda">
+        <div class="painel-demo__cab">
+          <span class="rotulo" id="painel-legenda">Painel ilustrativo · Monitoramento</span>
+          <span class="status">Operacional</span>
+        </div>
+        <div class="painel-demo__metricas">
+          <div class="metrica"><span>Disponibilidade</span><b>99,98%</b><small>+0,03% no mês</small></div>
+          <div class="metrica"><span>Serviços online</span><b>28 / 28</b><small>Todos operacionais</small></div>
+          <div class="metrica"><span>Tempo de resposta</span><b>184 ms</b><small>−12% no mês</small></div>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="secao secao--alt" id="processo" aria-labelledby="processo-titulo">
+    <div class="container">
+      <div class="secao-cab" data-revelar>
+        <span class="rotulo">Como funciona</span>
+        <h2 id="processo-titulo">Do primeiro contato à operação contínua</h2>
+      </div>
+      <ol class="passos" data-revelar>
+        <li class="passo"><h3>Conversa</h3><p>Entendemos o contexto, o objetivo e o prazo do seu projeto.</p></li>
+        <li class="passo"><h3>Diagnóstico</h3><p>Avaliamos o cenário atual e identificamos riscos e prioridades.</p></li>
+        <li class="passo"><h3>Proposta</h3><p>Apresentamos escopo, etapas e investimento de forma clara.</p></li>
+        <li class="passo"><h3>Entrega</h3><p>Executamos com validações a cada etapa.</p></li>
+        <li class="passo"><h3>Acompanhamento</h3><p>Monitoramos e damos suporte para manter tudo funcionando.</p></li>
+      </ol>
     </div>
   </section>
 
   <!-- COMO TRABALHAMOS -->
-  <section class="secao secao--alt" aria-labelledby="principios-titulo">
+  <section class="secao" aria-labelledby="principios-titulo">
     <div class="container">
       <div class="secao-cab" data-revelar>
         <span class="rotulo">Como trabalhamos</span>
@@ -218,25 +274,57 @@
   </section>
 
   <!-- CLIENTES — oculta até existirem logos. Para ativar, ver README.md > "Clientes". -->
-  <section class="secao" aria-labelledby="clientes-titulo" hidden>
+  <section class="secao" id="clientes" aria-labelledby="clientes-titulo" hidden>
     <div class="container">
       <div class="secao-cab" data-revelar>
         <span class="rotulo">Clientes</span>
         <h2 id="clientes-titulo">Quem confia na N3X</h2>
       </div>
       <ul class="clientes" data-revelar>
-        <!-- <li><img src="/assets/clientes/nome-do-cliente.svg" alt="Nome do cliente" width="140" height="48" loading="lazy"></li> -->
+        <!-- <li><img src="assets/clientes/nome-do-cliente.svg" alt="Nome do cliente" width="140" height="48" loading="lazy"></li> -->
       </ul>
     </div>
   </section>
 
+  <!-- ================================================================
+       SOBRE
+       ================================================================ -->
+  <section class="secao secao--alt" id="sobre" aria-labelledby="sobre-titulo">
+    <div class="container sobre">
+      <div class="prosa-curta" data-revelar>
+        <span class="rotulo">Sobre</span>
+        <h2 id="sobre-titulo">Um só parceiro para toda a camada técnica.</h2>
+        <p>A N3X é uma empresa de software e infraestrutura. Desenvolvemos sistemas, cuidamos dos ambientes onde eles rodam e monitoramos tudo para que funcionem com estabilidade.</p>
+        <p>Reunimos desenvolvimento, infraestrutura e monitoramento na mesma equipe. Assim, quem constrói o sistema também conhece o servidor onde ele roda e acompanha o seu funcionamento no dia a dia, sem que você precise coordenar vários fornecedores.</p>
+      </div>
+
+      <dl class="fatos" data-revelar>
+        <div class="fato">
+          <svg class="icone" aria-hidden="true"><use href="#i-local"/></svg>
+          <dt>Sede</dt>
+          <dd>Macapá-AP</dd>
+        </div>
+        <div class="fato">
+          <svg class="icone" aria-hidden="true"><use href="#i-nuvem"/></svg>
+          <dt>Atuação</dt>
+          <dd>Todo o Brasil, de forma remota</dd>
+        </div>
+        <div class="fato">
+          <svg class="icone" aria-hidden="true"><use href="#i-suporte"/></svg>
+          <dt>Atendemos</dt>
+          <dd>Empresas, órgãos públicos e pessoas físicas</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
   <!-- O NOME — conceito do manual da marca -->
-  <section class="secao" aria-labelledby="nome-titulo">
+  <section class="secao" id="nome" aria-labelledby="nome-titulo">
     <div class="container">
       <div class="secao-cab" data-revelar>
         <span class="rotulo">O nome</span>
         <h2 id="nome-titulo">Três letras, uma ideia</h2>
-        <p class="lede">A N3X une software, infraestrutura e monitoramento em uma só entrega. Cada parte do nome representa um compromisso.</p>
+        <p class="lede">A N3X une software, infraestrutura e monitoramento em uma só entrega. Cada parte do nome representa um compromisso com a forma como trabalhamos.</p>
       </div>
 
       <div class="conceito" data-revelar>
@@ -257,7 +345,7 @@
         </div>
       </div>
 
-      <p class="secao-rodape"><a class="btn btn--texto" href="/sobre">Conheça a N3X <svg class="icone" aria-hidden="true"><use href="/assets/icons/sprite.svg#seta"/></svg></a></p>
+      <p class="pronuncia">O nome se lê <b>“nex”</b> ou <b>“N-três-X”</b>.</p>
     </div>
   </section>
 
@@ -271,16 +359,66 @@
     </div>
   </section>
 
+  <!-- ================================================================
+       CONTATO
+       ================================================================ -->
+  <section class="secao" id="contato" aria-labelledby="contato-titulo">
+    <div class="container">
+      <div class="secao-cab" data-revelar>
+        <span class="rotulo">Contato</span>
+        <h2 id="contato-titulo">Fale com a N3X.</h2>
+        <p class="lede">Nosso atendimento é feito pelo WhatsApp. Conte o que você precisa e retornamos com os próximos passos.</p>
+      </div>
+
+      <div class="contato">
+        <div class="contato__principal" data-revelar>
+          <span class="rotulo">WhatsApp</span>
+          <a class="contato__numero" href="https://wa.me/5596991878067?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20N3X%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">(96) 99187-8067</a>
+          <p>Envie uma mensagem com um resumo da sua necessidade: o que você quer construir, melhorar ou monitorar. Quanto mais contexto, mais objetiva será a nossa resposta.</p>
+          <div class="acoes">
+            <a class="btn btn--primario btn--lg" href="https://wa.me/5596991878067?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20N3X%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">
+              <svg class="icone" aria-hidden="true"><use href="#i-mensagem"/></svg>
+              Conversar no WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="contato__lateral">
+          <div class="contato__card" data-revelar>
+            <span class="rotulo">Redes sociais</span>
+            <h3>Acompanhe a N3X</h3>
+            <ul class="lista-links">
+              <li><a href="https://www.instagram.com/n3x_software/" target="_blank" rel="noopener"><svg class="icone" aria-hidden="true"><use href="#i-instagram"/></svg>Instagram · @n3x_software</a></li>
+              <!-- REDES FUTURAS: descomente e preencha o link (ver README.md > "Redes sociais")
+              <li><a href="URL_LINKEDIN" target="_blank" rel="noopener"><svg class="icone" aria-hidden="true"><use href="#i-seta-externa"/></svg>LinkedIn</a></li>
+              <li><a href="URL_FACEBOOK" target="_blank" rel="noopener"><svg class="icone" aria-hidden="true"><use href="#i-seta-externa"/></svg>Facebook</a></li>
+              <li><a href="URL_TIKTOK" target="_blank" rel="noopener"><svg class="icone" aria-hidden="true"><use href="#i-seta-externa"/></svg>TikTok</a></li>
+              -->
+            </ul>
+          </div>
+
+          <div class="contato__card" data-revelar>
+            <span class="rotulo">Atuação</span>
+            <h3>Macapá-AP · Todo o Brasil</h3>
+            <p>Nossa sede fica em Macapá, e atendemos clientes de qualquer estado de forma remota.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="aviso-privacidade">Os dados que você compartilhar ao entrar em contato são usados apenas para responder à sua solicitação. Saiba mais na nossa <a href="privacidade.html">Política de Privacidade</a>.</p>
+    </div>
+  </section>
+
 </main>
 
-<!-- ▼ BLOCO: rodape -->
+<!-- ▼ BLOCO: rodape (em outras páginas, os links "#..." viram "index.html#...") -->
 <footer class="rodape">
   <div class="container">
     <div class="rodape__colunas">
       <div class="rodape__marca">
-        <a href="/" aria-label="N3X Software e Infraestrutura, página inicial">
-          <img class="logo-escuro" src="/assets/logo/n3x-logo-principal-fundo-escuro.svg" alt="" width="200" height="83" loading="lazy">
-          <img class="logo-claro" src="/assets/logo/n3x-logo-principal-fundo-claro.svg" alt="" width="200" height="83" loading="lazy">
+        <a href="#inicio" aria-label="N3X Software e Infraestrutura, início">
+          <img class="logo-escuro" src="assets/logo/n3x-logo-principal-fundo-escuro.svg" alt="" width="200" height="83" loading="lazy">
+          <img class="logo-claro" src="assets/logo/n3x-logo-principal-fundo-claro.svg" alt="" width="200" height="83" loading="lazy">
         </a>
         <p>Desenvolvimento, infraestrutura e monitoramento em uma só entrega.</p>
       </div>
@@ -288,46 +426,46 @@
       <nav aria-labelledby="rodape-servicos">
         <h2 id="rodape-servicos">Serviços</h2>
         <ul class="lista-links">
-          <li><a href="/servicos#desenvolvimento">Desenvolvimento</a></li>
-          <li><a href="/servicos#infraestrutura">Infraestrutura</a></li>
-          <li><a href="/servicos#monitoramento">Monitoramento</a></li>
+          <li><a href="#desenvolvimento">Desenvolvimento</a></li>
+          <li><a href="#infraestrutura">Infraestrutura</a></li>
+          <li><a href="#monitoramento">Monitoramento</a></li>
         </ul>
       </nav>
 
       <nav aria-labelledby="rodape-empresa">
         <h2 id="rodape-empresa">Empresa</h2>
         <ul class="lista-links">
-          <li><a href="/sobre">Sobre</a></li>
-          <li><a href="/contato">Contato</a></li>
-          <li><a href="/privacidade">Privacidade</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><a href="privacidade.html">Privacidade</a></li>
         </ul>
       </nav>
 
       <div>
         <h2>Contato</h2>
         <ul class="lista-links">
-          <li><a href="https://wa.me/5596991878067?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20N3X%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener"><svg class="icone" aria-hidden="true"><use href="/assets/icons/sprite.svg#mensagem"/></svg>(96) 99187-8067</a></li>
-          <li><a href="https://www.instagram.com/n3x_software/" target="_blank" rel="noopener"><svg class="icone" aria-hidden="true"><use href="/assets/icons/sprite.svg#instagram"/></svg>@n3x_software</a></li>
+          <li><a href="https://wa.me/5596991878067?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20N3X%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener"><svg class="icone" aria-hidden="true"><use href="#i-mensagem"/></svg>(96) 99187-8067</a></li>
+          <li><a href="https://www.instagram.com/n3x_software/" target="_blank" rel="noopener"><svg class="icone" aria-hidden="true"><use href="#i-instagram"/></svg>@n3x_software</a></li>
           <!-- REDES FUTURAS: descomente e preencha o link (ver README.md > "Redes sociais")
-          <li><a href="URL_LINKEDIN" target="_blank" rel="noopener"><svg class="icone" aria-hidden="true"><use href="/assets/icons/sprite.svg#seta-externa"/></svg>LinkedIn</a></li>
-          <li><a href="URL_FACEBOOK" target="_blank" rel="noopener"><svg class="icone" aria-hidden="true"><use href="/assets/icons/sprite.svg#seta-externa"/></svg>Facebook</a></li>
-          <li><a href="URL_TIKTOK" target="_blank" rel="noopener"><svg class="icone" aria-hidden="true"><use href="/assets/icons/sprite.svg#seta-externa"/></svg>TikTok</a></li>
+          <li><a href="URL_LINKEDIN" target="_blank" rel="noopener"><svg class="icone" aria-hidden="true"><use href="#i-seta-externa"/></svg>LinkedIn</a></li>
+          <li><a href="URL_FACEBOOK" target="_blank" rel="noopener"><svg class="icone" aria-hidden="true"><use href="#i-seta-externa"/></svg>Facebook</a></li>
+          <li><a href="URL_TIKTOK" target="_blank" rel="noopener"><svg class="icone" aria-hidden="true"><use href="#i-seta-externa"/></svg>TikTok</a></li>
           -->
-          <li><span><svg class="icone" aria-hidden="true"><use href="/assets/icons/sprite.svg#local"/></svg>Macapá-AP · Todo o Brasil</span></li>
+          <li><span><svg class="icone" aria-hidden="true"><use href="#i-local"/></svg>Macapá-AP · Todo o Brasil</span></li>
         </ul>
       </div>
     </div>
 
     <div class="rodape__base">
       <span>© 2026 N3X Software &amp; Infraestrutura</span>
-      <a href="/privacidade">Política de Privacidade</a>
+      <a href="privacidade.html">Política de Privacidade</a>
     </div>
   </div>
 </footer>
 
 <div class="barra-whatsapp">
   <a class="btn btn--primario btn--bloco" href="https://wa.me/5596991878067?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20N3X%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">
-    <svg class="icone" aria-hidden="true"><use href="/assets/icons/sprite.svg#mensagem"/></svg>
+    <svg class="icone" aria-hidden="true"><use href="#i-mensagem"/></svg>
     Fale conosco no WhatsApp
   </a>
 </div>

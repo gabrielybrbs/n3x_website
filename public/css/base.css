@@ -69,7 +69,6 @@ p { text-wrap: pretty; }
   max-width: 58ch;
 }
 
-.texto-2 { color: var(--c-texto-2); }
 
 /* ---------- Layout ---------- */
 .container {
@@ -97,8 +96,6 @@ p { text-wrap: pretty; }
 }
 .secao-cab .lede { margin-top: var(--n3x-e-1); }
 
-/* Link de continuidade ao fim de uma seção */
-.secao-rodape { margin-top: var(--n3x-e-6); }
 
 /* ---------- Acessibilidade ---------- */
 :focus { outline: none; }

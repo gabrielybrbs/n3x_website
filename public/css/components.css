@@ -7,7 +7,7 @@
    ========================================================================== */
 
 /* ==========================================================================
-   BOTÕES — primário · secundário · texto (kit)
+   BOTÕES — primário · secundário (kit)
    ========================================================================== */
 .btn {
   display: inline-flex;
@@ -33,15 +33,6 @@
 
 .btn--secundario { background: transparent; color: var(--c-titulo); border-color: var(--c-linha-forte); }
 .btn--secundario:hover { border-color: var(--c-destaque); color: var(--c-destaque); }
-
-.btn--texto {
-  min-height: 0;
-  padding: 4px 0;
-  background: transparent;
-  color: var(--c-destaque);
-}
-.btn--texto .icone { transition: transform .15s ease; }
-.btn--texto:hover .icone { transform: translateX(3px); }
 
 .btn--sm { min-height: 40px; padding: 9px 16px; font-size: 14px; }
 .btn--lg { min-height: 52px; padding: 16px 26px; font-size: 16px; }
@@ -85,8 +76,8 @@
   transition: color .15s ease;
 }
 .nav__link:hover { color: var(--c-titulo); }
-.nav__link[aria-current="page"] { color: var(--c-titulo); }
-.nav__link[aria-current="page"]::after {
+.nav__link[aria-current] { color: var(--c-titulo); }
+.nav__link[aria-current]::after {
   content: '';
   position: absolute;
   left: 12px;
@@ -152,7 +143,7 @@
     font-size: 17px;
     border-bottom: 1px solid var(--c-linha);
   }
-  .nav__link[aria-current="page"]::after { left: 0; right: auto; width: 24px; bottom: -1px; }
+  .nav__link[aria-current]::after { left: 0; right: auto; width: 24px; bottom: -1px; }
 }
 
 /* ==========================================================================
@@ -179,7 +170,7 @@
   right: -60px;
   bottom: 0;
   width: min(46%, 560px);
-  background: url('/assets/grafismo/cortes.svg') right center / auto 100% no-repeat;
+  background: url('../assets/grafismo/cortes.svg') right center / auto 100% no-repeat;
   pointer-events: none;
 }
 
@@ -263,8 +254,6 @@
 }
 .card-servico:hover { border-color: var(--c-destaque); transform: translateY(-2px); }
 .card-servico p { color: var(--c-texto-2); }
-.card-servico .lista-marcador { padding-top: var(--n3x-e-4); border-top: 1px solid var(--c-linha); }
-.card-servico .btn--texto { justify-self: start; margin-top: var(--n3x-e-2); }
 
 .icone-caixa {
   display: grid;
@@ -281,17 +270,31 @@
   .cards-servico { grid-template-columns: 1fr; }
 }
 
-/* Lista com marcador inclinado (kit) */
-.lista-marcador { display: grid; gap: var(--n3x-e-2); font-size: 15px; color: var(--c-texto-2); }
-.lista-marcador li { display: flex; align-items: baseline; gap: 10px; }
-.lista-marcador li::before {
+/* Itens do serviço: marcador inclinado do kit + título + descrição */
+.lista-servico {
+  display: grid;
+  gap: var(--n3x-e-4);
+  padding-top: var(--n3x-e-5);
+  border-top: 1px solid var(--c-linha);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--c-texto-2);
+}
+.lista-servico li { position: relative; padding-left: 18px; }
+.lista-servico li::before {
   content: '';
-  flex-shrink: 0;
+  position: absolute;
+  left: 0;
+  top: .5em;
   width: 6px;
   height: 6px;
   background: var(--c-destaque);
-  transform: translateY(-2px) skewX(-20deg);
+  transform: skewX(-20deg);
 }
+.lista-servico b { display: block; margin-bottom: 2px; color: var(--c-titulo); font-weight: 600; }
+
+/* Painel ilustrativo logo abaixo dos cards de serviço */
+.painel-demo--servicos { margin-top: var(--n3x-e-6); }
 
 /* ==========================================================================
    PRINCÍPIOS — 01 / 02 / 03

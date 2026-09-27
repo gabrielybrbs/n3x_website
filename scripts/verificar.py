@@ -4,7 +4,8 @@
 Uso:  python3 scripts/verificar.py
 
 1. Blocos compartilhados (head, cabecalho, rodape) idênticos em todas as
-   páginas, ignorando aria-current.
+   páginas. Os links "index.html#secao" das páginas secundárias equivalem
+   aos links "#secao" da página inicial.
 2. Links internos apontam para páginas existentes e âncoras (#id) existentes.
 3. Arquivos locais referenciados (css, js, imagens, fontes) existem.
 4. Cada página tem exatamente um <h1>.
@@ -42,7 +43,7 @@ class Coletor(HTMLParser):
 
 def bloco(texto, nome):
     m = re.search(rf'<!-- ▼ BLOCO: {nome}[^>]*-->.*?<!-- ▲ BLOCO: {nome} -->', texto, re.S)
-    return m.group(0).replace(' aria-current="page"', '') if m else None
+    return m.group(0).replace('href="index.html#', 'href="#') if m else None
 
 
 def main():
@@ -73,18 +74,19 @@ def main():
         for ref in c.refs:
             if ref.startswith(('http://', 'https://', 'mailto:', 'tel:', 'data:')):
                 continue
+            if ref.startswith('/'):
+                problemas.append(f'{nome}: caminho absoluto {ref} (use caminho relativo)')
+                continue
             caminho, _, ancora = ref.partition('#')
             caminho = caminho.split('?')[0]
             if not caminho:                      # âncora na própria página
                 alvo = nome
-            elif caminho == '/':
-                alvo = 'index.html'
-            elif Path(caminho).suffix:           # arquivo (css, js, svg...)
-                if not (PUBLICO / caminho.lstrip('/')).exists():
+            elif caminho.endswith('.html'):      # outra página
+                alvo = caminho
+            else:                                # arquivo (css, js, svg...)
+                if not (PUBLICO / caminho).exists():
                     problemas.append(f'{nome}: arquivo inexistente {caminho}')
                 continue
-            else:                                # URL limpa (/servicos)
-                alvo = caminho.strip('/') + '.html'
             if alvo not in coletas:
                 problemas.append(f'{nome}: página inexistente {ref}')
             elif ancora and ancora not in coletas[alvo].ids:

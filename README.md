@@ -10,12 +10,9 @@ Site da **N3X Software & Infraestrutura**, feito com HTML, CSS e JavaScript puro
 ```text
 .
 ├── public/                  ← SOMENTE esta pasta é publicada
-│   ├── index.html           Início        → /
-│   ├── servicos.html        Serviços      → /servicos
-│   ├── sobre.html           Sobre         → /sobre
-│   ├── contato.html         Contato       → /contato
-│   ├── privacidade.html     Privacidade   → /privacidade
-│   ├── 404.html             Página não encontrada
+│   ├── index.html           página única: Início, Serviços, Sobre, Contato → /
+│   ├── privacidade.html     Política de Privacidade                        → /privacidade
+│   ├── 404.html             página não encontrada
 │   ├── robots.txt · sitemap.xml · site.webmanifest
 │   ├── css/
 │   │   ├── tokens.css       tokens oficiais da marca (cópia fiel, NÃO editar)
@@ -23,14 +20,13 @@ Site da **N3X Software & Infraestrutura**, feito com HTML, CSS e JavaScript puro
 │   │   ├── theme.css        cores semânticas dos temas escuro e claro
 │   │   ├── base.css         reset, tipografia, layout, foco, utilitários
 │   │   ├── components.css   botões, cabeçalho, cards, rodapé, barra do WhatsApp...
-│   │   └── pages.css        layouts exclusivos de uma página
+│   │   └── pages.css        layouts usados num só lugar (Sobre, Contato, Privacidade, 404)
 │   ├── js/
 │   │   ├── tema-inicial.js  aplica o tema antes da renderização (no <head>)
-│   │   └── main.js          troca de tema, menu mobile, entrada suave
+│   │   └── main.js          troca de tema, menu mobile, seção ativa no menu, entrada suave
 │   └── assets/
 │       ├── logo/ simbolo/ favicon/   arquivos oficiais da marca
 │       ├── fonts/           Archivo, IBM Plex Sans, IBM Plex Mono (licença OFL)
-│       ├── icons/sprite.svg ícones da marca
 │       ├── grafismo/        cortes diagonais
 │       ├── clientes/        logos de clientes (vazio por enquanto)
 │       ├── og/              imagem de compartilhamento 1200×630
@@ -43,14 +39,15 @@ Site da **N3X Software & Infraestrutura**, feito com HTML, CSS e JavaScript puro
 └── vercel.json              publicação, URLs limpas, segurança e cache
 ```
 
-## Rodar localmente
+## Abrir localmente
 
-```bash
-cd public
-python3 -m http.server 8000
-```
+Todos os caminhos são **relativos**, então o site funciona de qualquer forma:
 
-Acesse `http://localhost:8000`. Localmente, as páginas internas abrem com `.html` (`/servicos.html`). Na Vercel, as URLs ficam limpas (`/servicos`).
+- abrindo `public/index.html` direto no navegador (duplo clique);
+- pelo Live Server do VS Code;
+- por um servidor local: `cd public && python3 -m http.server 8000`.
+
+Na Vercel, `privacidade.html` aparece como `/privacidade` (URL limpa).
 
 ## Publicar na Vercel
 
@@ -64,7 +61,14 @@ Acesse `http://localhost:8000`. Localmente, as páginas internas abrem com `.htm
 python3 scripts/verificar.py
 ```
 
-O script confere se os blocos compartilhados estão idênticos em todas as páginas, se os links internos, âncoras e arquivos existem e se cada página tem um único `<h1>`. Ele também lista os dados de demonstração.
+O script confere:
+
+- se os blocos compartilhados estão idênticos em todas as páginas;
+- se os links internos, âncoras e arquivos existem;
+- se não há caminho absoluto (`/css/...`), que quebraria o site aberto localmente;
+- se cada página tem um único `<h1>`.
+
+Ele também lista os dados de demonstração.
 
 ---
 
@@ -72,7 +76,9 @@ O script confere se os blocos compartilhados estão idênticos em todas as pági
 
 ### Blocos compartilhados (cabeçalho, rodapé e `<head>`)
 
-Como o site não tem build, os blocos abaixo se repetem nas 6 páginas. Eles ficam delimitados por comentários:
+O site é uma **página única** (`index.html`). Menu e rodapé levam às seções por âncoras (`#servicos`, `#sobre`, `#contato`). Só a Política de Privacidade e a página 404 são arquivos separados.
+
+Como o site não tem build, os blocos abaixo se repetem nas 3 páginas. Eles ficam delimitados por comentários:
 
 ```html
 <!-- ▼ BLOCO: cabecalho ... -->   ...   <!-- ▲ BLOCO: cabecalho -->
@@ -81,12 +87,17 @@ Como o site não tem build, os blocos abaixo se repetem nas 6 páginas. Eles fic
 | Bloco | Conteúdo |
 | --- | --- |
 | `head` | favicons, fontes, CSS, JS e metadados comuns |
-| `cabecalho` | link "pular para o conteúdo", logo, menu, tema, "Fale conosco" |
+| `cabecalho` | ícones da marca (embutidos), logo, menu, tema, "Fale conosco" |
 | `rodape` | rodapé e barra fixa do WhatsApp no mobile |
 
-**Para alterar um bloco:** edite em `index.html`, copie o bloco inteiro (do `▼` ao `▲`) para as outras páginas e rode `python3 scripts/verificar.py`.
+**Para alterar um bloco:**
 
-A única diferença permitida entre páginas é o `aria-current="page"` no link do menu da página atual. Título, descrição, `canonical` e `og:*` de cada página ficam **fora** do bloco `head`, logo abaixo do `<title>`.
+1. Edite em `index.html`.
+2. Copie o bloco inteiro (do `▼` ao `▲`) para `privacidade.html` e `404.html`.
+3. Nessas duas páginas, troque os links de seção `href="#..."` por `href="index.html#..."`. **Não altere** os `href="#i-..."` dos ícones.
+4. Rode `python3 scripts/verificar.py`.
+
+Título, descrição, `canonical` e `og:*` de cada página ficam **fora** do bloco `head`, logo abaixo do `<title>`.
 
 ### WhatsApp
 
@@ -98,11 +109,11 @@ Para trocar o número, substitua `5596991878067` e `(96) 99187-8067` em todas as
 rg -n '5596991878067|99187-8067' public/
 ```
 
-Também atualize o `telephone` do JSON-LD em `index.html`.
+Atualize também o `telephone` do JSON-LD em `index.html`.
 
 ### Redes sociais
 
-O Instagram está ativo. LinkedIn, Facebook e TikTok já estão prontos, comentados no rodapé (bloco `rodape`) e em `contato.html`:
+O Instagram está ativo. LinkedIn, Facebook e TikTok já estão prontos, comentados no rodapé (bloco `rodape`) e na seção Contato de `index.html`:
 
 ```html
 <!-- REDES FUTURAS: descomente e preencha o link ...
@@ -118,12 +129,12 @@ Para ativar uma rede:
 
 ### Clientes
 
-A seção de clientes da página Início está pronta, mas oculta (`hidden`) até haver logos. Para ativar:
+A seção de clientes está pronta em `index.html`, mas oculta (`hidden`) até haver logos. Para ativar:
 
 1. Salve os logos em `public/assets/clientes/`. Use SVG de preferência, ou PNG transparente com pelo menos 320 px de largura, nomeado como `nome-do-cliente.svg`.
 2. Em `index.html`, na seção `CLIENTES`, adicione um item por cliente:
    ```html
-   <li><img src="/assets/clientes/nome-do-cliente.svg" alt="Nome do cliente" width="140" height="48" loading="lazy"></li>
+   <li><img src="assets/clientes/nome-do-cliente.svg" alt="Nome do cliente" width="140" height="48" loading="lazy"></li>
    ```
 3. Remova o atributo `hidden` da `<section>`.
 
@@ -135,11 +146,11 @@ Por decisão da N3X, alguns números e ofertas são **fictícios por enquanto**.
 
 | Dado | Página |
 | --- | --- |
-| 99,9% de disponibilidade (SLA) | Início (destaques) e Serviços (nota) |
-| Monitoramento 24/7 | Início (destaques) e Serviços (nota) |
-| Relatórios mensais | Início (card) e Serviços (item) |
-| Diagnóstico gratuito | Início (faixa de chamada) |
-| Painel ilustrativo (99,98% · 28/28 · 184 ms) | Serviços |
+| 99,9% de disponibilidade (SLA) | Destaques, logo após o topo |
+| Monitoramento 24/7 | Destaques, logo após o topo |
+| Relatórios mensais | Card de Monitoramento |
+| Diagnóstico gratuito | Faixa de chamada |
+| Painel ilustrativo (99,98% · 28/28 · 184 ms) | Seção Serviços |
 
 Para listar: `python3 scripts/verificar.py` ou `rg -n 'data-demo' public/`.
 
@@ -165,26 +176,34 @@ A referência é o [manual da marca](brand/n3x-identidade/n3x-manual-da-marca.ht
 | Texto | IBM Plex Sans 17 px, entrelinha 1,6 |
 | Rótulos e dados | IBM Plex Mono Medium 12 px, caixa alta, espaçamento 0,14em |
 | Grafismo | Cortes diagonais no ângulo do X (~54°) saindo por uma borda, sobre listras de no máximo 8% |
-| Ícones | Grade de 24 px, traço de 1,75 px, pontas retas (`assets/icons/sprite.svg`) |
+| Ícones | Grade de 24 px, traço de 1,75 px, pontas retas (embutidos no bloco `cabecalho`) |
 | Logo | Secundário no cabeçalho (mín. 80 px), principal no rodapé (mín. 200 px). Nunca redesenhar, aplicar sombra ou brilho |
 
 Para usar um ícone:
 
 ```html
-<svg class="icone" aria-hidden="true"><use href="/assets/icons/sprite.svg#monitoramento"/></svg>
+<svg class="icone" aria-hidden="true"><use href="#i-monitoramento"/></svg>
 ```
 
-Ícones disponíveis: `desenvolvimento`, `infraestrutura`, `monitoramento`, `seguranca`, `nuvem`, `suporte`, `mensagem`, `instagram`, `local`, `seta`, `seta-externa`, `menu`, `fechar`, `sol`, `lua`, `check`. Novos ícones podem vir do [Lucide](https://lucide.dev), mantendo a mesma configuração.
+Os ícones ficam embutidos no início do bloco `cabecalho`. Um arquivo SVG externo não funcionaria ao abrir o site direto do disco. Ícones disponíveis: `i-desenvolvimento`, `i-infraestrutura`, `i-monitoramento`, `i-seguranca`, `i-nuvem`, `i-suporte`, `i-mensagem`, `i-instagram`, `i-local`, `i-seta`, `i-seta-externa`, `i-menu`, `i-fechar`, `i-sol`, `i-lua`, `i-check`.
+
+Novos ícones podem vir do [Lucide](https://lucide.dev), com a mesma configuração, adicionados como `<symbol>` no bloco `cabecalho` de todas as páginas.
 
 ### Cache de CSS e JS
 
-Os arquivos são chamados com `?v=1` (ex.: `/css/components.css?v=1`) e a Vercel os guarda em cache por uma semana. **Ao alterar CSS ou JS, aumente o número** (`?v=2`) no bloco `head` de todas as páginas.
+Os arquivos são chamados com `?v=2` (ex.: `css/components.css?v=2`) e a Vercel os guarda em cache por uma semana. **Ao alterar CSS ou JS, aumente o número** (`?v=3`) no bloco `head` de todas as páginas.
 
-### Adicionar uma página
+### Adicionar uma seção
 
-1. Copie `sobre.html` com o novo nome (`nova.html` vira `/nova`).
-2. Ajuste `<title>`, `description`, `canonical` e `og:*`, mova o `aria-current` para o link correto (ou remova) e troque o conteúdo do `<main>`.
-3. Adicione a URL em `sitemap.xml` e, se for o caso, no menu (bloco `cabecalho`) de todas as páginas.
+1. Crie a `<section class="secao" id="nome-da-secao">` em `index.html`, no ponto desejado.
+2. Se ela entrar no menu, adicione o link no bloco `cabecalho` de todas as páginas (`#nome-da-secao` em `index.html`, `index.html#nome-da-secao` nas demais).
+3. Rode `python3 scripts/verificar.py`.
+
+### Adicionar uma página separada
+
+1. Copie `privacidade.html` com o novo nome (`nova.html` vira `/nova` na Vercel).
+2. Ajuste `<title>`, `description`, `canonical` e `og:*` e troque o conteúdo do `<main>`.
+3. Adicione a URL em `sitemap.xml`.
 4. Rode `python3 scripts/verificar.py`.
 
 ### Movimento
@@ -206,6 +225,7 @@ Ainda não há e-mail oficial, então nenhum e-mail aparece no site. O logo da a
 - [ ] `python3 scripts/verificar.py` sem problemas.
 - [ ] Dados de demonstração revisados.
 - [ ] Menu mobile, barra do WhatsApp e troca de tema testados em um celular.
+- [ ] Links do menu rolando até as seções corretas.
 - [ ] Navegação por teclado (Tab) com foco visível.
 - [ ] Temas claro e escuro conferidos em todas as páginas.
 - [ ] `?v=` atualizado se CSS ou JS mudaram.

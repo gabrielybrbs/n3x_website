@@ -50,8 +50,8 @@ Respostas às perguntas da auditoria (26/09/2026). Este é o documento de refer�
 
 | Tema | Decisão |
 | --- | --- |
-| Formato | **Site institucional com várias páginas**, seguindo a navegação do kit: Início, Serviços, Sobre, Contato. |
-| Tecnologia | **HTML, CSS e JS puros**, sem framework ou build. |
+| Formato | **Página única** com as seções Início, Serviços, Sobre e Contato (menu do kit, navegando por âncoras). Só a Política de Privacidade fica em página separada. *Revisto em 27/09/2026: a primeira versão tinha uma página por item do menu.* |
+| Tecnologia | **HTML, CSS e JS puros**, sem framework ou build, com **caminhos relativos** para funcionar também ao abrir o arquivo direto ou pelo Live Server. |
 | Contato | **Somente WhatsApp** por enquanto; não haverá formulário. |
 | CTA no mobile | **Sempre visível**, em uma barra fixa no rodapé da tela. |
 | Movimento | Opção **(b)**: entrada suave das seções e hover discreto. Sem animações contínuas, parallax ou inclinação 3D. |
