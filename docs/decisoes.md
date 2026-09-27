@@ -21,7 +21,7 @@ Respostas às perguntas da auditoria (26/09/2026). Este é o documento de refer�
 | Domínio | `https://n3x.com.br` | Ativo |
 | WhatsApp | (96) 99187-8067 → `https://wa.me/5596991878067` | Ativo; é o canal principal |
 | Instagram | `https://www.instagram.com/n3x_software/` | Ativo (URL sem parâmetros de rastreio) |
-| Facebook, LinkedIn, TikTok | — | Estrutura pronta e oculta até existir o link |
+| Facebook, LinkedIn, TikTok | — | Estrutura pronta, comentada no HTML até existir o link (ver README) |
 | E-mail | — | Não existe e-mail oficial; não aparece no site |
 
 ## Conteúdo

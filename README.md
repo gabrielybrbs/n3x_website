@@ -1,282 +1,212 @@
-# N3X | Landing Page
+# N3X | Site institucional
 
-Landing page institucional da N3X, construída com HTML, CSS e JavaScript puros. O projeto não exige compilação, framework ou gerenciador de pacotes: basta servir os arquivos por um servidor HTTP estático.
+Site da **N3X Software & Infraestrutura**, feito com HTML, CSS e JavaScript puros, sem framework, sem build e sem dependências. Segue a identidade visual v1.0 (setembro de 2026) e é publicado na Vercel em `https://n3x.com.br`.
 
-## Visão geral
+> Histórico da reformulação: [docs/](docs/README.md), com auditoria, decisões e plano.
+> As decisões de conteúdo e escopo estão em [docs/decisoes.md](docs/decisoes.md).
 
-A página apresenta os serviços e o posicionamento da N3X em uma interface escura inspirada na identidade visual da marca. O conteúdo está organizado em três pilares: desenvolvimento, infraestrutura e monitoramento.
-
-Principais características:
-
-- layout responsivo para desktop, tablet e celular;
-- identidade visual baseada em azul, ciano e roxo;
-- logo oficial extraído do material de marca;
-- favicon otimizado para 16, 32 e 192 pixels;
-- menu móvel sem dependências;
-- animações de entrada durante a rolagem;
-- navegação com indicação da seção ativa;
-- cards com profundidade e iluminação responsivas ao cursor;
-- movimento ambiente no hero;
-- suporte a usuários que preferem movimento reduzido.
-
-## Estrutura de arquivos
+## Estrutura
 
 ```text
 .
-├── index.html
-├── script.js
-├── styles.css
-├── README.md
-└── assets/
-    ├── brand/
-    │   ├── n3x-symbol.png
-    │   └── n3x-wordmark-transparent.png
-    ├── icons/
-    │   ├── favicon-16.png
-    │   ├── favicon-32.png
-    │   └── favicon-192.png
-    └── source/
-        ├── favicon-square.png
-        ├── n3x-logo-transparent.png
-        ├── n3x-logo.png
-        ├── n3x.png
-        └── n3x_ind.png
+├── public/                  ← SOMENTE esta pasta é publicada
+│   ├── index.html           Início        → /
+│   ├── servicos.html        Serviços      → /servicos
+│   ├── sobre.html           Sobre         → /sobre
+│   ├── contato.html         Contato       → /contato
+│   ├── privacidade.html     Privacidade   → /privacidade
+│   ├── 404.html             Página não encontrada
+│   ├── robots.txt · sitemap.xml · site.webmanifest
+│   ├── css/
+│   │   ├── tokens.css       tokens oficiais da marca (cópia fiel, NÃO editar)
+│   │   ├── fonts.css        fontes locais
+│   │   ├── theme.css        cores semânticas dos temas escuro e claro
+│   │   ├── base.css         reset, tipografia, layout, foco, utilitários
+│   │   ├── components.css   botões, cabeçalho, cards, rodapé, barra do WhatsApp...
+│   │   └── pages.css        layouts exclusivos de uma página
+│   ├── js/
+│   │   ├── tema-inicial.js  aplica o tema antes da renderização (no <head>)
+│   │   └── main.js          troca de tema, menu mobile, entrada suave
+│   └── assets/
+│       ├── logo/ simbolo/ favicon/   arquivos oficiais da marca
+│       ├── fonts/           Archivo, IBM Plex Sans, IBM Plex Mono (licença OFL)
+│       ├── icons/sprite.svg ícones da marca
+│       ├── grafismo/        cortes diagonais
+│       ├── clientes/        logos de clientes (vazio por enquanto)
+│       ├── og/              imagem de compartilhamento 1200×630
+│       └── brand/           logo da assinatura de e-mail
+├── brand/                   ← NÃO publicado
+│   ├── n3x-identidade/      manual da marca, kit digital, PDFs, redes sociais
+│   └── legado/              site e arquivos da identidade anterior
+├── docs/                    auditoria, decisões e plano
+├── scripts/verificar.py     verificação automática do site
+└── vercel.json              publicação, URLs limpas, segurança e cache
 ```
 
-### Arquivos principais
-
-| Arquivo      | Responsabilidade                                             |
-| ------------ | ------------------------------------------------------------ |
-| `index.html` | Conteúdo, estrutura semântica e SVG decorativo.              |
-| `styles.css` | Tokens visuais, layout, responsividade, estados e animações. |
-| `script.js`  | Menu móvel, observadores e interações de cursor e rolagem.   |
-| `README.md`  | Documentação de uso e manutenção.                            |
-
-### Assets
-
-| Asset | Uso | Publicação |
-| --- | --- | --- |
-| `assets/brand/n3x-wordmark-transparent.png` | Wordmark “N3X” usado no cabeçalho e rodapé, combinado com uma assinatura em texto HTML. | Necessário |
-| `assets/brand/n3x-symbol.png` | Símbolo “X” em alta resolução e arquivo-mestre dos favicons atuais. | Opcional |
-| `assets/icons/favicon-16.png` | Favicon para abas e contextos de 16 px. | Necessário |
-| `assets/icons/favicon-32.png` | Favicon principal dos navegadores. | Necessário |
-| `assets/icons/favicon-192.png` | Ícone para atalhos e dispositivos móveis. | Necessário |
-| `assets/source/n3x.png` | Painel original de identidade visual. | Não necessário |
-| `assets/source/n3x_ind.png` | Segundo painel original de identidade visual. | Não necessário |
-| `assets/source/n3x-logo-transparent.png` | Recorte anterior com logo e assinatura rasterizada. | Não necessário |
-| `assets/source/n3x-logo.png` | Recorte intermediário do logo com fundo opaco. | Não necessário |
-| `assets/source/favicon-square.png` | Alternativa quadrada descartada porque o lettering perde legibilidade em tamanhos pequenos. | Não necessário |
-
-### Convenção da pasta `assets`
-
-- `brand/`: arquivos finais ou mestres da marca;
-- `icons/`: ícones efetivamente referenciados pelo HTML;
-- `source/`: artes originais, recortes intermediários e alternativas mantidas para futuras edições.
-
-Novos arquivos devem ser colocados de acordo com sua função. Evite adicionar imagens diretamente na raiz do projeto ou na raiz de `assets/`.
-
-## Como executar localmente
-
-Não abra necessariamente o arquivo apenas com `file://`, pois um servidor local reproduz melhor o ambiente de publicação.
-
-Com Python:
+## Rodar localmente
 
 ```bash
+cd public
 python3 -m http.server 8000
 ```
 
-Depois acesse `http://localhost:8000`. Também é possível usar qualquer servidor estático, como a extensão Live Server do VS Code.
+Acesse `http://localhost:8000`. Localmente, as páginas internas abrem com `.html` (`/servicos.html`). Na Vercel, as URLs ficam limpas (`/servicos`).
 
-## Estrutura da página
+## Publicar na Vercel
 
-### Cabeçalho
+1. Importe o repositório na Vercel.
+2. Não é preciso configurar nada: o `vercel.json` já define `public/` como pasta publicada e desativa o build.
+3. Em **Settings › Domains**, aponte `n3x.com.br` (e `www.n3x.com.br`, redirecionando para o principal).
 
-O cabeçalho permanece fixo no topo e contém:
-
-- logo com retorno ao início;
-- links para as principais seções;
-- destaque automático do link correspondente à seção visível;
-- botão de menu em telas com largura inferior a `820px`.
-
-### Hero
-
-A abertura comunica a proposta central da N3X e apresenta um SVG animado em forma de malha/X. O desenho combina grade pontilhada, órbitas, circuitos externos, sinais em movimento, núcleo pulsante e um X central com gradiente e brilho. O conjunto também se desloca sutilmente de acordo com o cursor em dispositivos com mouse.
-
-O SVG é decorativo e usa `aria-hidden="true"` para não gerar ruído em leitores de tela.
-
-### O que significa N3X
-
-Seção `#significado`, estruturada a partir do nome da empresa:
-
-- **N:** Network;
-- **3:** três pilares;
-- **X:** execução.
-
-Os três blocos possuem realce visual ao passar o cursor.
-
-### Pilares
-
-Seção `#pilares`, composta por Desenvolvimento, Infraestrutura e Monitoramento. Em dispositivos com cursor preciso, os cards recebem uma inclinação leve e um brilho radial que acompanha o ponteiro. Em telas touch, esse comportamento não é ativado.
-
-### Como atuamos
-
-Seção `#compromisso` com três princípios institucionais: robustez em produção, visibilidade/observabilidade e proximidade com o cliente.
-
-Esse conteúdo foi redigido para a landing page e deve ser validado antes da publicação oficial.
-
-### CTA e rodapé
-
-O CTA conduz ao contato por e-mail. O rodapé repete a navegação, exibe os contatos e contém a assinatura institucional.
-
-## Identidade visual
-
-### Cores
-
-Os tokens ficam no início de `styles.css`, dentro de `:root`:
-
-```css
---bg-deep: #0a0f1c;
---bg-panel: #111827;
---bg-panel-2: #151d2e;
---blue: #2563eb;
---cyan: #00d4ff;
---purple: #8b5cf6;
---text-primary: #f3f5f9;
---text-secondary: #94a3b8;
---text-muted: #5b6478;
-```
-
-Para alterar a paleta global, prefira modificar esses tokens em vez de substituir cores isoladamente pelo arquivo.
-
-### Tipografia
-
-As fontes são carregadas pelo Google Fonts:
-
-| Uso                     | Fonte          |
-| ----------------------- | -------------- |
-| Títulos                 | Space Grotesk  |
-| Corpo                   | Inter          |
-| Labels, números e dados | JetBrains Mono |
-
-As famílias também são centralizadas em `:root` por meio de `--font-display`, `--font-body` e `--font-mono`. Se o Google Fonts não estiver acessível, o navegador utiliza os fallbacks genéricos definidos no CSS.
-
-## Animações e interações
-
-O JavaScript está separado em `script.js`, carregado no final de `index.html`, e não depende de bibliotecas externas.
-
-### Menu móvel
-
-O botão alterna a classe `.open` na navegação e mantém `aria-expanded` sincronizado. Ao selecionar um link, o menu fecha automaticamente.
-
-### Entrada na rolagem
-
-Um `IntersectionObserver` adiciona `.is-visible` aos elementos quando entram na área visível. Títulos, textos introdutórios, blocos N3X, cards, princípios e CTA são observados. O atraso escalonado é controlado pela variável CSS `--reveal-delay`.
-
-### Efeito dos cards
-
-Eventos `pointermove` calculam a posição relativa do cursor e atualizam `--pointer-x`, `--pointer-y`, a rotação em perspectiva e a elevação do card. O efeito só é habilitado quando `(pointer: fine)` corresponde ao dispositivo.
-
-### Seção ativa
-
-Outro `IntersectionObserver` acompanha as seções com `id` e aplica `.active` ao link correto da navegação.
-
-### Movimento reduzido
-
-O projeto respeita `prefers-reduced-motion: reduce` em dois níveis:
-
-- o CSS reduz ou desativa animações e transições;
-- o JavaScript não inicializa parallax, inclinação ou entrada animada.
-
-Ao criar novas animações, mantenha essa proteção.
-
-## Responsividade
-
-| Largura           | Comportamento                                                       |
-| ----------------- | ------------------------------------------------------------------- |
-| Abaixo de `900px` | Cards dos pilares passam para uma coluna.                           |
-| Abaixo de `820px` | Navegação vira menu móvel e o hero passa para uma coluna.           |
-| Abaixo de `760px` | Grades de significado, compromisso e rodapé passam para uma coluna. |
-| Abaixo de `520px` | Logo, tipografia do hero e margens laterais são reduzidos.          |
-
-Os títulos utilizam `clamp()` para crescer de forma fluida. O conteúdo principal é limitado por `--maxw: 1180px`.
-
-## Acessibilidade
-
-Recursos presentes:
-
-- idioma configurado como `pt-BR`;
-- texto alternativo no logo;
-- `aria-label` nos links de retorno e no botão do menu;
-- `aria-expanded` atualizado pelo menu móvel;
-- SVG decorativo removido da árvore de acessibilidade;
-- navegação por teclado e foco padrão preservados;
-- preferência por movimento reduzido respeitada;
-- links externos com `rel="noopener"`.
-
-## Conteúdo que precisa ser revisado
-
-Os seguintes dados ainda são placeholders:
-
-- `contato@n3x.dev`;
-- `+55 11 99999-9999`;
-- `n3x.dev`.
-
-O rodapé marca essa área com a etiqueta amarela `placeholder`. Para localizar todas as ocorrências:
+## Verificar antes de publicar
 
 ```bash
-rg 'contato@n3x.dev|99999-9999|n3x.dev' index.html
+python3 scripts/verificar.py
 ```
 
-Ao trocar o e-mail, atualize tanto o texto visível quanto o `href="mailto:..."`.
+O script confere se os blocos compartilhados estão idênticos em todas as páginas, se os links internos, âncoras e arquivos existem e se cada página tem um único `<h1>`. Ele também lista os dados de demonstração.
 
-Também devem ser validados antes da publicação os textos de “Como atuamos”, o ano/razão social do copyright, o domínio oficial, os canais de contato e os metadados de SEO.
+---
 
-## Como personalizar
+## Manutenção
 
-### Alterar textos
+### Blocos compartilhados (cabeçalho, rodapé e `<head>`)
 
-Edite diretamente o conteúdo semântico em `index.html`. Preserve os `id` das seções se os links do menu continuarem apontando para eles.
+Como o site não tem build, os blocos abaixo se repetem nas 6 páginas. Eles ficam delimitados por comentários:
 
-### Alterar o logo
+```html
+<!-- ▼ BLOCO: cabecalho ... -->   ...   <!-- ▲ BLOCO: cabecalho -->
+```
 
-O site usa `assets/brand/n3x-wordmark-transparent.png` para o “N3X” e renderiza “Software & Infrastructure” como texto HTML, garantindo nitidez em qualquer escala. Para trocar a marca, substitua o PNG mantendo o nome ou atualize os dois atributos `src` no cabeçalho e no rodapé.
+| Bloco | Conteúdo |
+| --- | --- |
+| `head` | favicons, fontes, CSS, JS e metadados comuns |
+| `cabecalho` | link "pular para o conteúdo", logo, menu, tema, "Fale conosco" |
+| `rodape` | rodapé e barra fixa do WhatsApp no mobile |
 
-### Alterar o favicon
+**Para alterar um bloco:** edite em `index.html`, copie o bloco inteiro (do `▼` ao `▲`) para as outras páginas e rode `python3 scripts/verificar.py`.
 
-Substitua `assets/icons/favicon-16.png`, `assets/icons/favicon-32.png` e `assets/icons/favicon-192.png`. As referências estão no `<head>` de `index.html`.
+A única diferença permitida entre páginas é o `aria-current="page"` no link do menu da página atual. Título, descrição, `canonical` e `og:*` de cada página ficam **fora** do bloco `head`, logo abaixo do `<title>`.
 
-O sufixo `?v=2` funciona como controle simples de cache. Ao substituir novamente os ícones, aumente o número, por exemplo para `?v=3`.
+### WhatsApp
 
-### Alterar layout
+Número atual: **(96) 99187-8067**. Os links usam `https://wa.me/5596991878067?text=...`, com mensagem pronta.
 
-- largura máxima: `--maxw`;
-- margem lateral: `.wrap`;
-- raios de borda: `--radius-sm`, `--radius-md` e `--radius-lg`;
-- espaçamento vertical: `padding` de cada seção.
+Para trocar o número, substitua `5596991878067` e `(96) 99187-8067` em todas as páginas:
 
-## Publicação
+```bash
+rg -n '5596991878067|99187-8067' public/
+```
 
-Como o projeto é estático, pode ser publicado diretamente em GitHub Pages, Netlify, Vercel, Cloudflare Pages, Amazon S3/CloudFront ou qualquer servidor Nginx/Apache.
+Também atualize o `telephone` do JSON-LD em `index.html`.
 
-O diretório publicado deve incluir `index.html`, `styles.css`, `assets/brand/n3x-wordmark-transparent.png` e os três arquivos de `assets/icons/`. A pasta `assets/source/` e `assets/brand/n3x-symbol.png` são fontes de trabalho e podem ser omitidas do pacote de produção.
+### Redes sociais
 
-Não existe etapa de build. O arquivo de entrada é `index.html`.
+O Instagram está ativo. LinkedIn, Facebook e TikTok já estão prontos, comentados no rodapé (bloco `rodape`) e em `contato.html`:
+
+```html
+<!-- REDES FUTURAS: descomente e preencha o link ...
+<li><a href="URL_LINKEDIN" ...>LinkedIn</a></li>
+-->
+```
+
+Para ativar uma rede:
+
+1. Tire a linha de dentro do comentário e troque `URL_...` pelo link real.
+2. Repita o bloco `rodape` nas outras páginas.
+3. Acrescente o link em `"sameAs"` no JSON-LD de `index.html`.
+
+### Clientes
+
+A seção de clientes da página Início está pronta, mas oculta (`hidden`) até haver logos. Para ativar:
+
+1. Salve os logos em `public/assets/clientes/`. Use SVG de preferência, ou PNG transparente com pelo menos 320 px de largura, nomeado como `nome-do-cliente.svg`.
+2. Em `index.html`, na seção `CLIENTES`, adicione um item por cliente:
+   ```html
+   <li><img src="/assets/clientes/nome-do-cliente.svg" alt="Nome do cliente" width="140" height="48" loading="lazy"></li>
+   ```
+3. Remova o atributo `hidden` da `<section>`.
+
+Só publique logos de clientes que autorizaram o uso da marca.
+
+### Dados de demonstração
+
+Por decisão da N3X, alguns números e ofertas são **fictícios por enquanto**. Todos estão marcados com o atributo `data-demo`:
+
+| Dado | Página |
+| --- | --- |
+| 99,9% de disponibilidade (SLA) | Início (destaques) e Serviços (nota) |
+| Monitoramento 24/7 | Início (destaques) e Serviços (nota) |
+| Relatórios mensais | Início (card) e Serviços (item) |
+| Diagnóstico gratuito | Início (faixa de chamada) |
+| Painel ilustrativo (99,98% · 28/28 · 184 ms) | Serviços |
+
+Para listar: `python3 scripts/verificar.py` ou `rg -n 'data-demo' public/`.
+
+Para confirmar um dado como real, basta manter o texto; o atributo pode continuar. Para remover, apague o elemento marcado.
+
+> ⚠️ Uma oferta publicada, como o SLA, pode ser cobrada por clientes. Confirme cada item antes de divulgar o site amplamente.
+
+### Tema claro e escuro
+
+- Na primeira visita, o site segue a preferência do sistema. O botão ☀/☾ no cabeçalho alterna o tema, e a escolha fica salva no navegador (`localStorage`, chave `n3x-tema`).
+- As cores dos componentes vêm de `theme.css` (`--c-fundo`, `--c-texto`, `--c-destaque`, `--c-acao`...). **Não use cores fixas nos componentes.** Se precisar de uma cor nova, crie a variável nos dois temas.
+- Regras da marca: no escuro, ação e destaque em **ciano**; no claro, em **azul**. Ciano nunca é usado como texto sobre fundo branco.
+- Logos têm duas versões lado a lado no HTML (`.logo-escuro` e `.logo-claro`); o CSS mostra a correta.
+
+### Identidade visual
+
+A referência é o [manual da marca](brand/n3x-identidade/n3x-manual-da-marca.html) e o [kit digital](brand/n3x-identidade/n3x-kit-digital.html). Resumo:
+
+| Elemento | Regra |
+| --- | --- |
+| Cores | Ciano `#2FC4E4` dominante, azul `#3F63D9` para profundidade, lilás `#7E62E0` só como toque no degradê, grafite `#161B28` como fundo |
+| Títulos | Archivo SemiBold/Bold, largura 112% |
+| Texto | IBM Plex Sans 17 px, entrelinha 1,6 |
+| Rótulos e dados | IBM Plex Mono Medium 12 px, caixa alta, espaçamento 0,14em |
+| Grafismo | Cortes diagonais no ângulo do X (~54°) saindo por uma borda, sobre listras de no máximo 8% |
+| Ícones | Grade de 24 px, traço de 1,75 px, pontas retas (`assets/icons/sprite.svg`) |
+| Logo | Secundário no cabeçalho (mín. 80 px), principal no rodapé (mín. 200 px). Nunca redesenhar, aplicar sombra ou brilho |
+
+Para usar um ícone:
+
+```html
+<svg class="icone" aria-hidden="true"><use href="/assets/icons/sprite.svg#monitoramento"/></svg>
+```
+
+Ícones disponíveis: `desenvolvimento`, `infraestrutura`, `monitoramento`, `seguranca`, `nuvem`, `suporte`, `mensagem`, `instagram`, `local`, `seta`, `seta-externa`, `menu`, `fechar`, `sol`, `lua`, `check`. Novos ícones podem vir do [Lucide](https://lucide.dev), mantendo a mesma configuração.
+
+### Cache de CSS e JS
+
+Os arquivos são chamados com `?v=1` (ex.: `/css/components.css?v=1`) e a Vercel os guarda em cache por uma semana. **Ao alterar CSS ou JS, aumente o número** (`?v=2`) no bloco `head` de todas as páginas.
+
+### Adicionar uma página
+
+1. Copie `sobre.html` com o novo nome (`nova.html` vira `/nova`).
+2. Ajuste `<title>`, `description`, `canonical` e `og:*`, mova o `aria-current` para o link correto (ou remova) e troque o conteúdo do `<main>`.
+3. Adicione a URL em `sitemap.xml` e, se for o caso, no menu (bloco `cabecalho`) de todas as páginas.
+4. Rode `python3 scripts/verificar.py`.
+
+### Movimento
+
+Há só uma entrada suave das seções (`data-revelar`) e transições curtas de hover. Não há animações contínuas. Quem ativa "reduzir movimento" no sistema não vê nenhuma animação. Mantenha esse padrão.
+
+## Privacidade (LGPD)
+
+- Sem cookies, analytics, pixels ou formulários. Fontes servidas pelo próprio site.
+- A política fica em `/privacidade`. **Se entrar analytics, formulário ou qualquer ferramenta de terceiros, atualize a política e avalie a necessidade de consentimento antes de publicar.**
+- O `vercel.json` aplica uma Content Security Policy restrita ao próprio domínio. Um script ou serviço externo novo precisa ser liberado nela.
+
+## E-mail
+
+Ainda não há e-mail oficial, então nenhum e-mail aparece no site. O logo da assinatura de e-mail já é publicado em `/assets/brand/n3x-assinatura-logo.png`, o endereço que `brand/n3x-identidade/email/assinatura-email.html` espera.
 
 ## Checklist antes de publicar
 
-- [ ] Substituir e-mail, telefone e domínio.
-- [ ] Validar o texto institucional.
-- [ ] Confirmar o ano e a razão social do rodapé.
-- [ ] Testar menu e links em celular.
-- [ ] Testar navegação por teclado.
-- [ ] Conferir a página com movimento reduzido ativado.
-- [ ] Verificar favicon em janela anônima para evitar cache antigo.
-- [ ] Revisar título e descrição para SEO.
-- [ ] Otimizar imagens caso o tamanho final aumente.
-- [ ] Publicar `index.html`, `styles.css`, `assets/brand/n3x-wordmark-transparent.png` e `assets/icons/` juntos.
-
-## Compatibilidade
-
-O projeto utiliza CSS Grid, Flexbox, variáveis CSS, `clamp()`, `backdrop-filter`, `IntersectionObserver`, Pointer Events e `matchMedia()`. Esses recursos são suportados pelos navegadores modernos.
-
-Sem `IntersectionObserver`, o conteúdo continua disponível; apenas as entradas animadas e o destaque automático da navegação não são aplicados.
+- [ ] `python3 scripts/verificar.py` sem problemas.
+- [ ] Dados de demonstração revisados.
+- [ ] Menu mobile, barra do WhatsApp e troca de tema testados em um celular.
+- [ ] Navegação por teclado (Tab) com foco visível.
+- [ ] Temas claro e escuro conferidos em todas as páginas.
+- [ ] `?v=` atualizado se CSS ou JS mudaram.
+- [ ] Após publicar: testar a pré-visualização de link (WhatsApp, LinkedIn) e o Google Rich Results Test na página inicial.

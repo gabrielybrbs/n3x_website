@@ -16,7 +16,7 @@ Nenhum arquivo do site é alterado antes de o plano ser aprovado. Mudanças de e
 
 ## Referências de marca
 
-Os materiais oficiais ficam em `brand/n3x-identidade/`, fora do que é publicado. Essa pasta será movida de `assets/n3x-identidade/` durante a implementação.
+Os materiais oficiais ficam em `brand/n3x-identidade/`, fora do que é publicado.
 
 - `n3x-manual-da-marca.html` / `.pdf`: logo, cores, tipografia, grafismos, ícones e fotografia.
 - `n3x-kit-digital.html` / `.pdf`: UI kit do site, redes sociais e assinatura de e-mail.

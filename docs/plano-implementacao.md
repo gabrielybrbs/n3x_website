@@ -1,6 +1,29 @@
 # Plano de implementação
 
-Status: **aguardando aprovação**. Baseado em [auditoria.md](auditoria.md) e [decisoes.md](decisoes.md).
+Status: **aprovado e implementado** (27/09/2026, branch `reformulacao-identidade`). Baseado em [auditoria.md](auditoria.md) e [decisoes.md](decisoes.md).
+
+## Desvios em relação ao plano aprovado
+
+Ajustes feitos durante a implementação, com o motivo de cada um:
+
+| Plano | Implementado | Motivo |
+| --- | --- | --- |
+| Botões com raio de 4 px | Botões com 8 px, cards com 14 px | É o que o UI kit oficial usa; o kit prevalece sobre a estimativa do plano. |
+| Redes futuras com `hidden` | Redes futuras dentro de comentários HTML | Links ocultos com URL provisória seriam seguidos por buscadores e gerariam erro 404. |
+| Clientes em Início e Sobre | Clientes só no Início | Evita repetir a mesma faixa em duas páginas; basta ativar em um lugar. |
+| Texto do conceito "X" | "O braço destacado do X representa..." (sem "em ciano") | No tema claro o destaque é azul; o restante do texto é o do manual. |
+| — | `scripts/verificar.py` | Garante que os blocos repetidos (HTML puro) continuem idênticos entre páginas. |
+| Arquivos antigos da raiz substituídos | Movidos para `brand/legado/` | Mantém a referência do site anterior fora do que é publicado. |
+| Grafismo em SVG inline | `assets/grafismo/cortes.svg` como fundo em CSS | Um único arquivo para todas as páginas, sem repetir SVG no HTML. |
+| Faixa de chamada com título e texto | Só título e botão | O texto escuro sobre o trecho azul do degradê tem contraste de 3,6:1, suficiente apenas para texto grande. |
+| HSTS com `preload` | HSTS sem `preload` | O preload inscreve o domínio e todos os subdomínios de forma quase irreversível; é decisão da N3X. |
+
+## Verificação realizada
+
+- `scripts/verificar.py`: blocos idênticos, links, âncoras, arquivos e `h1` únicos nas 6 páginas.
+- HTML com tags balanceadas; JSON-LD, `vercel.json`, `sitemap.xml` e SVGs válidos; JS sem erros de sintaxe; nenhuma variável CSS indefinida.
+- Contraste WCAG AA de todas as combinações de cor usadas, nos dois temas.
+- **Não foi possível gerar capturas de tela** no ambiente de desenvolvimento (o navegador headless travou). A conferência visual em navegador fica pendente (ver o resumo da entrega).
 
 ## Princípios
 
