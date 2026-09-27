@@ -41,6 +41,10 @@
   /* grafismo */
   --c-listra:       rgba(47, 196, 228, .07);  /* máx. 8% (manual) */
 
+  /* brilho neon dos rótulos de seção */
+  --c-neon-texto:    0 0 10px rgba(47, 196, 228, .55), 0 0 2px rgba(47, 196, 228, .35);
+  --c-neon-marcador: 0 0 12px rgba(47, 196, 228, .7);
+
   /* focos de luz das seções */
   --c-luz-ciano:    rgba(47, 196, 228, .11);
   --c-luz-azul:     rgba(63, 99, 217, .16);
@@ -74,6 +78,9 @@
   --c-icone-fundo:  rgba(63, 99, 217, .08);
 
   --c-listra:       rgba(63, 99, 217, .06);
+
+  --c-neon-texto:    0 0 8px rgba(63, 99, 217, .22);
+  --c-neon-marcador: 0 0 8px rgba(47, 196, 228, .5);
 
   --c-luz-ciano:    rgba(47, 196, 228, .10);
   --c-luz-azul:     rgba(63, 99, 217, .07);

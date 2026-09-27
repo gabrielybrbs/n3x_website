@@ -66,6 +66,30 @@ p { text-wrap: pretty; }
   color: var(--c-destaque);
 }
 
+/* Rótulo de abertura de seção, com brilho neon e losango, como no site
+   anterior. Só nos rótulos que abrem seções e no hero; os rótulos internos
+   de cards continuam simples. Intensidade por tema em theme.css. */
+.hero__conteudo > .rotulo,
+.secao-cab > .rotulo,
+.prosa-curta > .rotulo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-shadow: var(--c-neon-texto);
+}
+.hero__conteudo > .rotulo::before,
+.secao-cab > .rotulo::before,
+.prosa-curta > .rotulo::before {
+  content: '';
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  background: linear-gradient(135deg, var(--n3x-azul), var(--n3x-ciano));
+  box-shadow: var(--c-neon-marcador);
+  transform: rotate(45deg);
+}
+
 .lede {
   font-size: clamp(17px, 1.6vw, 19px);
   line-height: 1.6;
