@@ -1,0 +1,79 @@
+/* ==========================================================================
+   TEMAS
+   --------------------------------------------------------------------------
+   Traduz os tokens oficiais (tokens.css, não editar) em variáveis
+   semânticas usadas pelos componentes. Nenhum componente usa cor fixa:
+   tudo passa por estas variáveis, que mudam conforme <html data-theme>.
+
+   Regras do manual respeitadas:
+   - escuro: ação e destaque em ciano;
+   - claro: ação e destaque em azul (ciano nunca como texto sobre branco);
+   - lilás só como toque dentro do degradê.
+   ========================================================================== */
+
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* superfícies */
+  --c-fundo:        var(--n3x-grafite);
+  --c-fundo-2:      var(--n3x-grafite-2);
+  --c-painel:       var(--n3x-painel);
+  --c-cabecalho:    rgba(22, 27, 40, .96);
+
+  /* texto */
+  --c-titulo:       var(--n3x-nevoa);
+  --c-texto:        var(--n3x-nevoa);
+  --c-texto-2:      var(--n3x-texto-2);
+
+  /* linhas */
+  --c-linha:        var(--n3x-linha);
+  --c-linha-forte:  var(--n3x-linha-forte);
+
+  /* ação e destaque */
+  --c-destaque:     var(--n3x-ciano);
+  --c-acao:         var(--n3x-ciano);
+  --c-acao-hover:   #56D2EC;              /* hover do botão primário (kit) */
+  --c-acao-texto:   #0B1020;              /* texto sobre ciano (kit) */
+  --c-icone:        var(--n3x-ciano);
+  --c-icone-fundo:  rgba(47, 196, 228, .10);
+
+  /* grafismo */
+  --c-listra:       rgba(47, 196, 228, .07);  /* máx. 8% (manual) */
+
+  /* logos */
+  --logo-escuro: block;
+  --logo-claro:  none;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --c-fundo:        #FFFFFF;
+  --c-fundo-2:      var(--n3x-nevoa);
+  --c-painel:       #FFFFFF;
+  --c-cabecalho:    rgba(255, 255, 255, .96);
+
+  --c-titulo:       var(--n3x-grafite);
+  --c-texto:        var(--n3x-marinho);
+  --c-texto-2:      var(--n3x-aco);
+
+  --c-linha:        rgba(34, 48, 79, .12);
+  --c-linha-forte:  #C9D0DC;              /* borda do botão secundário (kit) */
+
+  --c-destaque:     var(--n3x-azul);
+  --c-acao:         var(--n3x-azul);
+  --c-acao-hover:   #3353C2;              /* kit */
+  --c-acao-texto:   #FFFFFF;
+  --c-icone:        var(--n3x-azul);
+  --c-icone-fundo:  rgba(63, 99, 217, .08);
+
+  --c-listra:       rgba(63, 99, 217, .06);
+
+  --logo-escuro: none;
+  --logo-claro:  block;
+}
+
+/* Logos: cada <img> declara para qual fundo foi desenhado */
+.logo-escuro { display: var(--logo-escuro); }
+.logo-claro  { display: var(--logo-claro); }

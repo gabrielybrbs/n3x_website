@@ -1,0 +1,577 @@
+/* ==========================================================================
+   COMPONENTES
+   Baseados no UI kit do site (brand/n3x-identidade/n3x-kit-digital.html).
+   Ordem: botões · cabeçalho · menu · hero/grafismo · destaques · cards de
+   serviço · princípios · conceito N3X · clientes · passos · painel demo ·
+   faixa de chamada · links · rodapé · barra WhatsApp.
+   ========================================================================== */
+
+/* ==========================================================================
+   BOTÕES — primário · secundário · texto (kit)
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--n3x-e-2);
+  min-height: 44px;
+  padding: 12px 22px;
+  border: 1px solid transparent;
+  border-radius: var(--n3x-raio-md);
+  font-family: var(--n3x-f-texto);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+.btn .icone { width: 18px; height: 18px; }
+
+.btn--primario { background: var(--c-acao); color: var(--c-acao-texto); }
+.btn--primario:hover { background: var(--c-acao-hover); }
+
+.btn--secundario { background: transparent; color: var(--c-titulo); border-color: var(--c-linha-forte); }
+.btn--secundario:hover { border-color: var(--c-destaque); color: var(--c-destaque); }
+
+.btn--texto {
+  min-height: 0;
+  padding: 4px 0;
+  background: transparent;
+  color: var(--c-destaque);
+}
+.btn--texto .icone { transition: transform .15s ease; }
+.btn--texto:hover .icone { transform: translateX(3px); }
+
+.btn--sm { min-height: 40px; padding: 9px 16px; font-size: 14px; }
+.btn--lg { min-height: 52px; padding: 16px 26px; font-size: 16px; }
+.btn--bloco { width: 100%; }
+
+.acoes { display: flex; flex-wrap: wrap; gap: var(--n3x-e-3); }
+
+/* ==========================================================================
+   CABEÇALHO
+   ========================================================================== */
+.cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--c-cabecalho);
+  border-bottom: 1px solid var(--c-linha);
+}
+.cabecalho__barra {
+  display: flex;
+  align-items: center;
+  gap: var(--n3x-e-5);
+  height: 72px;
+}
+
+/* logo secundário: mínimo de 80px na tela (manual) */
+.marca { display: inline-flex; flex-shrink: 0; }
+.marca img { width: 112px; height: auto; }
+
+.nav { margin-left: auto; }
+.nav__lista { display: flex; align-items: center; gap: var(--n3x-e-2); }
+.nav__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-inline: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--c-texto-2);
+  text-decoration: none;
+  transition: color .15s ease;
+}
+.nav__link:hover { color: var(--c-titulo); }
+.nav__link[aria-current="page"] { color: var(--c-titulo); }
+.nav__link[aria-current="page"]::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 6px;
+  height: 2px;
+  background: var(--c-destaque);
+}
+
+.cabecalho__acoes { display: flex; align-items: center; gap: var(--n3x-e-2); }
+
+.botao-icone {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--c-linha-forte);
+  border-radius: var(--n3x-raio-md);
+  color: var(--c-titulo);
+  transition: border-color .15s ease, color .15s ease;
+}
+.botao-icone:hover { border-color: var(--c-destaque); color: var(--c-destaque); }
+.botao-icone .icone { width: 20px; height: 20px; }
+
+/* tema: mostra o ícone do tema para o qual o botão leva */
+.botao-tema .icone-sol { display: var(--logo-escuro); }
+.botao-tema .icone-lua { display: var(--logo-claro); }
+
+.botao-menu { display: none; }
+.botao-menu .icone-fechar { display: none; }
+.botao-menu[aria-expanded="true"] .icone-menu { display: none; }
+.botao-menu[aria-expanded="true"] .icone-fechar { display: block; }
+
+@media (max-width: 899px) {
+  .botao-menu { display: inline-grid; }
+  .cabecalho__cta { display: none; }
+  .cabecalho__acoes { margin-left: auto; }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    margin: 0;
+    background: var(--c-fundo);
+    border-bottom: 1px solid var(--c-linha);
+    box-shadow: var(--n3x-sombra);
+  }
+  .nav.aberto { display: block; }
+  .nav__lista {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: var(--n3x-e-3) 20px var(--n3x-e-5);
+  }
+  .nav__link {
+    width: 100%;
+    min-height: 52px;
+    padding-inline: 0;
+    font-size: 17px;
+    border-bottom: 1px solid var(--c-linha);
+  }
+  .nav__link[aria-current="page"]::after { left: 0; right: auto; width: 24px; bottom: -1px; }
+}
+
+/* ==========================================================================
+   HERO + GRAFISMO
+   Fundo com listras sutis (máx. 8%) e cortes diagonais saindo pela borda
+   direita, como no banner do kit e nas peças de redes sociais.
+   ========================================================================== */
+.grafismo {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: var(--c-fundo);
+  background-image: repeating-linear-gradient(
+    126deg,
+    var(--c-listra) 0 11px,
+    transparent 11px 97px
+  );
+}
+.grafismo::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: -60px;
+  bottom: 0;
+  width: min(46%, 560px);
+  background: url('/assets/grafismo/cortes.svg') right center / auto 100% no-repeat;
+  pointer-events: none;
+}
+
+.hero { padding-block: var(--n3x-e-9) calc(var(--n3x-e-9) + var(--n3x-e-4)); }
+.hero__conteudo {
+  display: grid;
+  gap: var(--n3x-e-5);
+  max-width: 680px;
+}
+.hero h1 { max-width: 15ch; }
+.hero .acoes { margin-top: var(--n3x-e-3); }
+
+/* páginas internas: mesmo grafismo, altura menor */
+.hero--pagina { padding-block: var(--n3x-e-8) var(--n3x-e-8); }
+.hero--pagina h1 { max-width: 20ch; font-size: clamp(34px, 4.4vw, 48px); }
+.hero--pagina.grafismo::after { width: min(34%, 380px); }
+
+@media (max-width: 899px) {
+  .hero { padding-block: var(--n3x-e-8) 220px; }
+  .hero--pagina { padding-block: var(--n3x-e-7) 150px; }
+  .grafismo::after {
+    top: auto;
+    height: 200px;
+    width: 220px;
+    right: -30px;
+  }
+  .hero--pagina.grafismo::after { height: 130px; width: 150px; }
+}
+
+/* ==========================================================================
+   DESTAQUES — faixa de números logo após o hero
+   ========================================================================== */
+.destaques-secao {
+  border-bottom: 1px solid var(--c-linha);
+  background: var(--c-fundo-2);
+}
+.destaques {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.destaque {
+  display: grid;
+  gap: var(--n3x-e-1);
+  padding: var(--n3x-e-6) var(--n3x-e-5);
+}
+.destaque + .destaque { border-left: 1px solid var(--c-linha); }
+.destaque b {
+  font-family: var(--n3x-f-titulo);
+  font-stretch: var(--n3x-largura-titulo);
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--c-titulo);
+  font-variant-numeric: tabular-nums;
+}
+.destaque span { font-size: var(--n3x-t-pequeno); color: var(--c-texto-2); }
+
+@media (max-width: 759px) {
+  .destaques { grid-template-columns: 1fr; }
+  .destaque { padding: var(--n3x-e-5) 0; }
+  .destaque + .destaque { border-left: 0; border-top: 1px solid var(--c-linha); }
+}
+
+/* ==========================================================================
+   CARDS DE SERVIÇO — três pilares (kit)
+   ========================================================================== */
+.cards-servico {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--n3x-e-4);
+}
+.card-servico {
+  display: grid;
+  align-content: start;
+  gap: var(--n3x-e-4);
+  padding: var(--n3x-e-6) 26px;
+  background: var(--c-painel);
+  border: 1px solid var(--c-linha);
+  border-radius: var(--n3x-raio-lg);
+  transition: border-color .2s ease, transform .2s ease;
+}
+.card-servico:hover { border-color: var(--c-destaque); transform: translateY(-2px); }
+.card-servico p { color: var(--c-texto-2); }
+.card-servico .lista-marcador { padding-top: var(--n3x-e-4); border-top: 1px solid var(--c-linha); }
+.card-servico .btn--texto { justify-self: start; margin-top: var(--n3x-e-2); }
+
+.icone-caixa {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: var(--c-icone-fundo);
+  color: var(--c-icone);
+}
+.icone-caixa .icone { width: 26px; height: 26px; }
+
+@media (max-width: 899px) {
+  .cards-servico { grid-template-columns: 1fr; }
+}
+
+/* Lista com marcador inclinado (kit) */
+.lista-marcador { display: grid; gap: var(--n3x-e-2); font-size: 15px; color: var(--c-texto-2); }
+.lista-marcador li { display: flex; align-items: baseline; gap: 10px; }
+.lista-marcador li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  background: var(--c-destaque);
+  transform: translateY(-2px) skewX(-20deg);
+}
+
+/* ==========================================================================
+   PRINCÍPIOS — 01 / 02 / 03
+   ========================================================================== */
+.principios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--n3x-e-7) var(--n3x-e-6);
+}
+.principio { display: grid; align-content: start; gap: var(--n3x-e-3); padding-top: var(--n3x-e-5); border-top: 2px solid var(--c-linha-forte); }
+.principio .rotulo { color: var(--c-texto-2); }
+.principio .rotulo b { color: var(--c-destaque); font-weight: 500; }
+.principio p { color: var(--c-texto-2); }
+
+@media (max-width: 899px) {
+  .principios { grid-template-columns: 1fr; gap: var(--n3x-e-6); }
+}
+
+/* ==========================================================================
+   CONCEITO N · 3 · X (manual, bloco "Conceito")
+   ========================================================================== */
+.conceito {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--c-linha);
+  border: 1px solid var(--c-linha);
+  border-radius: var(--n3x-raio-md);
+  overflow: hidden;
+}
+.conceito__item {
+  display: grid;
+  align-content: start;
+  gap: var(--n3x-e-2);
+  padding: var(--n3x-e-6) 26px;
+  background: var(--c-painel);
+}
+.conceito__letra {
+  font-family: var(--n3x-f-titulo);
+  font-stretch: 118%;
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--c-titulo);
+  margin-bottom: var(--n3x-e-3);
+}
+.conceito__letra--destaque { color: var(--c-destaque); }
+.conceito__item p { color: var(--c-texto-2); }
+
+@media (max-width: 759px) {
+  .conceito { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   CLIENTES — faixa de logos (oculta enquanto não houver logos)
+   ========================================================================== */
+.clientes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1px;
+  background: var(--c-linha);
+  border: 1px solid var(--c-linha);
+  border-radius: var(--n3x-raio-md);
+  overflow: hidden;
+}
+.clientes li {
+  display: grid;
+  place-items: center;
+  min-height: 112px;
+  padding: var(--n3x-e-5);
+  background: var(--c-painel);
+}
+.clientes img {
+  max-width: 140px;
+  max-height: 48px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: .75;
+  transition: filter .2s ease, opacity .2s ease;
+}
+.clientes li:hover img { filter: none; opacity: 1; }
+
+/* ==========================================================================
+   PASSOS — como funciona
+   ========================================================================== */
+.passos {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--n3x-e-4);
+  counter-reset: passo;
+}
+.passo {
+  display: grid;
+  align-content: start;
+  gap: var(--n3x-e-2);
+  padding: var(--n3x-e-5);
+  background: var(--c-painel);
+  border: 1px solid var(--c-linha);
+  border-radius: var(--n3x-raio-md);
+}
+.passo::before {
+  counter-increment: passo;
+  content: counter(passo, decimal-leading-zero);
+  font-family: var(--n3x-f-mono);
+  font-size: var(--n3x-t-rotulo);
+  font-weight: 500;
+  letter-spacing: .14em;
+  color: var(--c-destaque);
+}
+.passo h3 { font-size: 18px; }
+.passo p { font-size: 15px; color: var(--c-texto-2); }
+
+@media (max-width: 1023px) { .passos { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 599px)  { .passos { grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   PAINEL ILUSTRATIVO — status e métricas (kit)
+   ========================================================================== */
+.painel-demo {
+  display: grid;
+  gap: var(--n3x-e-4);
+  padding: var(--n3x-e-5);
+  background: var(--c-fundo-2);
+  border: 1px solid var(--c-linha);
+  border-radius: var(--n3x-raio-lg);
+}
+.painel-demo__cab {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--n3x-e-3);
+}
+.painel-demo__cab .rotulo { color: var(--c-texto-2); }
+.painel-demo__metricas { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--n3x-e-3); }
+
+.metrica {
+  display: grid;
+  gap: var(--n3x-e-1);
+  padding: 18px 20px;
+  background: var(--c-painel);
+  border: 1px solid var(--c-linha);
+  border-radius: var(--n3x-raio-lg);
+}
+.metrica span {
+  font-family: var(--n3x-f-mono);
+  font-size: var(--n3x-t-rotulo);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--c-texto-2);
+}
+.metrica b {
+  font-family: var(--n3x-f-titulo);
+  font-stretch: var(--n3x-largura-titulo);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--c-titulo);
+  font-variant-numeric: tabular-nums;
+}
+.metrica small { font-size: 13px; color: var(--c-texto-2); }
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px 5px 10px;
+  font-family: var(--n3x-f-mono);
+  font-size: var(--n3x-t-rotulo);
+  letter-spacing: .06em;
+  color: var(--c-texto);
+  border: 1px solid var(--c-linha-forte);
+  border-radius: 99px;
+}
+.status::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--n3x-ok); }
+
+@media (max-width: 759px) { .painel-demo__metricas { grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   FAIXA DE CHAMADA — degradê oficial (kit)
+   ========================================================================== */
+.faixa {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--n3x-e-5);
+  padding: var(--n3x-e-6) var(--n3x-e-6);
+  border-radius: var(--n3x-raio-lg);
+  background: linear-gradient(100deg, var(--n3x-azul), var(--n3x-ciano-2) 60%, var(--n3x-ciano));
+}
+/* Só título grande sobre o degradê: no trecho azul o contraste do texto
+   escuro é ~3,6:1, suficiente apenas para texto ≥ 24px (WCAG AA grande). */
+.faixa h2 { max-width: 30ch; font-size: clamp(24px, 2.6vw, 28px); color: #0B1020; }
+.faixa .btn { background: #0B1020; color: #FFFFFF; }
+.faixa .btn:hover { background: var(--n3x-grafite); }
+.faixa .btn:focus-visible { box-shadow: 0 0 0 3px #FFFFFF; }
+
+/* ==========================================================================
+   LINKS DE REDES / CONTATO
+   ========================================================================== */
+.lista-links { display: grid; gap: var(--n3x-e-2); }
+.lista-links a,
+.lista-links span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 32px;
+  color: var(--c-texto-2);
+  text-decoration: none;
+  transition: color .15s ease;
+}
+.lista-links a:hover { color: var(--c-destaque); }
+.lista-links .icone { width: 18px; height: 18px; }
+
+/* ==========================================================================
+   RODAPÉ (kit)
+   ========================================================================== */
+.rodape {
+  padding-block: var(--n3x-e-8) var(--n3x-e-5);
+  background: var(--c-fundo-2);
+  border-top: 1px solid var(--c-linha);
+  font-size: var(--n3x-t-pequeno);
+}
+.rodape__colunas {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: var(--n3x-e-6);
+}
+.rodape__marca { display: grid; align-content: start; gap: var(--n3x-e-4); }
+/* logo principal: mínimo de 200px na tela (manual) */
+.rodape__marca img { width: 200px; height: auto; }
+.rodape__marca p { color: var(--c-texto-2); max-width: 32ch; }
+.rodape h2 {
+  margin-bottom: var(--n3x-e-3);
+  font-family: var(--n3x-f-mono);
+  font-stretch: 100%;
+  font-size: var(--n3x-t-rotulo);
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--c-texto-2);
+}
+.rodape .lista-links a,
+.rodape .lista-links span { min-height: 28px; }
+.rodape__base {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--n3x-e-3);
+  margin-top: var(--n3x-e-7);
+  padding-top: var(--n3x-e-4);
+  border-top: 1px solid var(--c-linha);
+  font-size: 13px;
+  color: var(--c-texto-2);
+}
+.rodape__base a { text-decoration: none; }
+.rodape__base a:hover { color: var(--c-destaque); }
+
+@media (max-width: 899px) { .rodape__colunas { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 599px) { .rodape__colunas { grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   BARRA WHATSAPP — fixa no rodapé da tela no mobile
+   ========================================================================== */
+.barra-whatsapp { display: none; }
+
+@media (max-width: 899px) {
+  .barra-whatsapp {
+    display: block;
+    position: fixed;
+    z-index: 40;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+    background: var(--c-cabecalho);
+    border-top: 1px solid var(--c-linha);
+  }
+  /* espaço para a barra não cobrir o fim da página */
+  body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
+}

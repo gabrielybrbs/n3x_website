@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 420" preserveAspectRatio="xMaxYMid slice">
+  <!-- Grafismo oficial N3X: cortes diagonais no ângulo do X (~54°), degradê
+       oficial. Uma faixa larga e duas finas (máximo do manual). Copiado do
+       banner do kit digital. Mesmo desenho nos temas claro e escuro. -->
+  <defs>
+    <linearGradient id="n3x-degrade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3F63D9"/>
+      <stop offset=".45" stop-color="#36B8E6"/>
+      <stop offset="1" stop-color="#2FC4E4"/>
+    </linearGradient>
+    <linearGradient id="n3x-lilas" x1="0" y1="0" x2="1" y2="1">
+      <stop offset=".45" stop-color="#7E62E0" stop-opacity="0"/>
+      <stop offset="1" stop-color="#7E62E0" stop-opacity=".55"/>
+    </linearGradient>
+  </defs>
+  <path d="M40 420 L345 0 H391 L86 420 Z" fill="url(#n3x-degrade)" opacity=".9"/>
+  <path d="M40 420 L345 0 H391 L86 420 Z" fill="url(#n3x-lilas)"/>
+  <path d="M118 420 L423 0 H441 L136 420 Z" fill="url(#n3x-degrade)" opacity=".55"/>
+  <path d="M160 420 L465 0 H473 L168 420 Z" fill="url(#n3x-degrade)" opacity=".3"/>
+</svg>

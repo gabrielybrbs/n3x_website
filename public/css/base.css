@@ -1,0 +1,162 @@
+/* ==========================================================================
+   BASE
+   Reset, tipografia, layout geral, foco e utilitários.
+   Hierarquia tipográfica conforme o manual (Título 1/2/3, Corpo, Rótulo).
+   ========================================================================== */
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: 88px;   /* compensa o cabeçalho fixo nas âncoras */
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+body {
+  margin: 0;
+  background: var(--c-fundo);
+  color: var(--c-texto);
+  font-family: var(--n3x-f-texto);
+  font-size: var(--n3x-t-corpo);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img, svg { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+h1, h2, h3, h4, p, figure, dl, dd { margin: 0; }
+button { font: inherit; color: inherit; cursor: pointer; }
+
+/* ---------- Tipografia ---------- */
+h1, h2, h3, h4 {
+  font-family: var(--n3x-f-titulo);
+  font-stretch: var(--n3x-largura-titulo);
+  color: var(--c-titulo);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+h1 { font-size: var(--n3x-t-h1); font-weight: 700; line-height: 1.05; }
+h2 { font-size: var(--n3x-t-h2); font-weight: 600; line-height: 1.15; }
+h3 { font-size: var(--n3x-t-h3); font-weight: 600; line-height: 1.25; }
+
+h1 em, h2 em { font-style: normal; color: var(--c-destaque); }
+
+p { text-wrap: pretty; }
+
+/* Rótulo: Plex Mono Medium 12px, caixa alta, 0,14em (manual) */
+.rotulo {
+  display: inline-block;
+  font-family: var(--n3x-f-mono);
+  font-size: var(--n3x-t-rotulo);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--c-destaque);
+}
+
+.lede {
+  font-size: clamp(17px, 1.6vw, 19px);
+  line-height: 1.6;
+  color: var(--c-texto-2);
+  max-width: 58ch;
+}
+
+.texto-2 { color: var(--c-texto-2); }
+
+/* ---------- Layout ---------- */
+.container {
+  width: 100%;
+  max-width: var(--n3x-largura-max);
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+@media (min-width: 600px) { .container { padding-inline: 32px; } }
+
+.secao { padding-block: var(--n3x-e-8); }
+@media (min-width: 900px) { .secao { padding-block: var(--n3x-e-9); } }
+
+.secao + .secao { border-top: 1px solid var(--c-linha); }
+.secao--alt { background: var(--c-fundo-2); }
+.secao--alt + .secao,
+.secao + .secao--alt { border-top: 0; }
+
+/* Cabeçalho de seção: rótulo + título + texto de apoio */
+.secao-cab {
+  display: grid;
+  gap: var(--n3x-e-3);
+  max-width: 720px;
+  margin-bottom: var(--n3x-e-7);
+}
+.secao-cab .lede { margin-top: var(--n3x-e-1); }
+
+/* Link de continuidade ao fim de uma seção */
+.secao-rodape { margin-top: var(--n3x-e-6); }
+
+/* ---------- Acessibilidade ---------- */
+:focus { outline: none; }
+:focus-visible {
+  outline: none;
+  box-shadow: var(--n3x-foco);
+  border-radius: var(--n3x-raio-sm);
+}
+
+.pular-conteudo {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  z-index: 100;
+  padding: 12px 18px;
+  background: var(--c-acao);
+  color: var(--c-acao-texto);
+  font-weight: 600;
+  border-radius: var(--n3x-raio-md);
+  text-decoration: none;
+}
+.pular-conteudo:focus-visible { top: 12px; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+[hidden] { display: none !important; }
+
+/* ---------- Ícones (sprite) ---------- */
+.icone {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+
+/* ---------- Entrada suave (ativada por main.js) ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .revelar-pronto [data-revelar] {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity .5s ease, transform .5s ease;
+  }
+  .revelar-pronto [data-revelar].visivel {
+    opacity: 1;
+    transform: none;
+  }
+}
