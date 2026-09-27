@@ -29,6 +29,7 @@ Respostas às perguntas da auditoria (26/09/2026). Este é o documento de refer�
 - **Textos dos pilares e do conceito N/3/X:** valem os do manual e do kit digital.
 - **Seção "O que significa N3X":** permanece, mais abaixo na página. A N3X considera importante transmitir o significado do nome.
 - **Equipe:** sem seção por enquanto.
+- **Faixa de chamada (27/09/2026):** "Diagnóstico gratuito da sua infraestrutura" foi trocado por "Faça o orçamento agora", com botão "Solicitar orçamento" (WhatsApp com mensagem pronta sobre orçamento). Deixou de ser dado de demonstração.
 - **Removidos em 27/09/2026:** a frase de pronúncia do nome ("nex" / "N-três-X") e o card "Atuação" da seção Contato. Macapá-AP e "todo o Brasil" continuam na seção Sobre; no rodapé fica só "Macapá-AP".
 - **Clientes:** os logos ainda não foram entregues. A seção fica **pronta e oculta** até os arquivos chegarem (ver [plano](plano-implementacao.md#clientes)).
 - **Dados de demonstração:** a N3X autorizou gerar números e ofertas de exemplo, que **são fictícios** no momento. Eles ficam concentrados e marcados no código com `data-demo` para facilitar a troca. Ver a seção abaixo.
@@ -40,7 +41,6 @@ Respostas às perguntas da auditoria (26/09/2026). Este é o documento de refer�
 | Disponibilidade com SLA de 99,9% | Serviços › Monitoramento; faixa de destaques no Início |
 | Monitoramento 24/7 | Serviços › Monitoramento; faixa de destaques |
 | Relatórios mensais | Item do card de Monitoramento (texto do kit) |
-| Diagnóstico gratuito da infraestrutura | Faixa de chamada (texto do kit) |
 | Painel ilustrativo: disponibilidade 99,98%, serviços online 28/28, tempo de resposta 184 ms | Serviços › Monitoramento, identificado na tela como "Painel ilustrativo" |
 
 **O que não será inventado:** nomes ou logos de clientes, depoimentos, quantidade de projetos ou clientes, anos de mercado e certificações. Esses dados apresentados como reais seriam enganosos.

@@ -149,7 +149,6 @@ Por decisão da N3X, alguns números e ofertas são **fictícios por enquanto**.
 | 99,9% de disponibilidade (SLA) | Destaques, logo após o topo |
 | Monitoramento 24/7 | Destaques, logo após o topo |
 | Relatórios mensais | Card de Monitoramento |
-| Diagnóstico gratuito | Faixa de chamada |
 | Painel ilustrativo (99,98% · 28/28 · 184 ms) | Seção Serviços |
 
 Para listar: `python3 scripts/verificar.py` ou `rg -n 'data-demo' public/`.
