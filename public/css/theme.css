@@ -45,7 +45,8 @@
   --c-neon-texto:    0 0 10px rgba(47, 196, 228, .55), 0 0 2px rgba(47, 196, 228, .35);
   --c-neon-marcador: 0 0 12px rgba(47, 196, 228, .7);
 
-  /* focos de luz das seções */
+  /* focos de luz das seções e do cursor nos cards */
+  --c-luz-cartao:   rgba(47, 196, 228, .10);
   --c-luz-ciano:    rgba(47, 196, 228, .11);
   --c-luz-azul:     rgba(63, 99, 217, .16);
   --c-luz-lilas:    rgba(126, 98, 224, .12);
@@ -82,6 +83,7 @@
   --c-neon-texto:    0 0 8px rgba(63, 99, 217, .22);
   --c-neon-marcador: 0 0 8px rgba(47, 196, 228, .5);
 
+  --c-luz-cartao:   rgba(63, 99, 217, .07);
   --c-luz-ciano:    rgba(47, 196, 228, .10);
   --c-luz-azul:     rgba(63, 99, 217, .07);
   --c-luz-lilas:    rgba(126, 98, 224, .06);

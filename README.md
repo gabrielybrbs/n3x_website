@@ -190,7 +190,7 @@ Novos ícones podem vir do [Lucide](https://lucide.dev), com a mesma configuraç
 
 ### Cache de CSS e JS
 
-Os arquivos são chamados com `?v=11` (ex.: `css/components.css?v=11`) e a Vercel os guarda em cache por uma semana. **Ao alterar CSS ou JS, aumente o número** (`?v=12`) no bloco `head` de todas as páginas.
+Os arquivos são chamados com `?v=12` (ex.: `css/components.css?v=12`) e a Vercel os guarda em cache por uma semana. **Ao alterar CSS ou JS, aumente o número** (`?v=13`) no bloco `head` de todas as páginas.
 
 ### Adicionar uma seção
 
@@ -208,6 +208,7 @@ Os arquivos são chamados com `?v=11` (ex.: `css/components.css?v=11`) e a Verce
 ### Movimento
 
 - Entrada suave das seções (`data-revelar`) e transições curtas de hover.
+- Foco de luz que segue o cursor nos cards de serviço (só com mouse).
 - Única exceção com animação contínua: o **símbolo X** do hero (órbitas, sinais e pulsos). As animações só começam quando ele aparece na tela.
 - Quem ativa "reduzir movimento" no sistema não vê nenhuma animação.
 

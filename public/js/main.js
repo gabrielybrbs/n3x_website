@@ -4,6 +4,7 @@
    2. Menu mobile
    3. Destaque no menu da seção visível
    4. Entrada suave das seções
+   5. Foco de luz do cursor nos cards de serviço
    Script comum com "defer" (não é módulo, para funcionar também ao abrir
    o arquivo direto no navegador). Sem dependências. O conteúdo funciona
    completo sem JavaScript.
@@ -128,5 +129,16 @@
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 });
 
     itensRevelar.forEach(function (item) { observadorRevelar.observe(item); });
+  }
+
+  /* ---------- 5. Foco de luz do cursor nos cards ---------- */
+  if (window.matchMedia('(pointer: fine)').matches) {
+    document.querySelectorAll('.card-servico').forEach(function (card) {
+      card.addEventListener('pointermove', function (evento) {
+        var area = card.getBoundingClientRect();
+        card.style.setProperty('--cursor-x', (evento.clientX - area.left) + 'px');
+        card.style.setProperty('--cursor-y', (evento.clientY - area.top) + 'px');
+      });
+    });
   }
 })();

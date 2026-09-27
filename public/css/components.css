@@ -305,6 +305,26 @@
   transition: border-color .2s ease, transform .2s ease;
 }
 .card-servico:hover { border-color: var(--c-destaque); transform: translateY(-2px); }
+
+/* Foco de luz que acompanha o cursor (como no site anterior). A posição
+   vem de main.js (--cursor-x/--cursor-y), só em dispositivos com mouse. */
+.card-servico {
+  --cursor-x: 50%;
+  --cursor-y: 50%;
+  position: relative;
+  overflow: hidden;
+}
+.card-servico::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(360px circle at var(--cursor-x) var(--cursor-y), var(--c-luz-cartao), transparent 48%);
+  opacity: 0;
+  transition: opacity .25s ease;
+  pointer-events: none;
+}
+.card-servico:hover::before { opacity: 1; }
+.card-servico > * { position: relative; }
 .card-servico p { color: var(--c-texto-2); }
 
 .icone-caixa {

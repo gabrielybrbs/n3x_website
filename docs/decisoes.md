@@ -33,6 +33,7 @@ Respostas às perguntas da auditoria (26/09/2026). Este é o documento de refer�
   - **Logo do cabeçalho.** A N3X testou a versão com slogan (200 px e depois 150 px) e voltou para a **secundária, sem slogan**, com 112 px, como o manual recomenda para cabeçalhos. Cabeçalho com 72 px de altura. O rodapé mantém a versão principal (com slogan), com 200 px.
   - **Focos de luz.** Manchas de luz radiais e estáticas nas seções após o hero, como no site anterior, em ciano, azul e um toque de lilás, afastadas das laterais e contidas na seção.
   - **Rótulos de seção com brilho neon** e losango em degradê, como no site anterior (só rótulos que abrem seções e o do hero; mais sutil no tema claro).
+  - **Foco de luz que segue o cursor** nos cards de Serviços, como no site anterior (sem a inclinação 3D), só em dispositivos com mouse.
   - **Espaçamento reduzido entre seções:** 80 px no desktop e 56 px no celular (antes 112 px e 72 px).
   - **Sem linhas entre seções.** As bordas entre seções saíram; fundos alternados, rodapé e grafismo do hero passam de um para o outro em degradê.
   - **Símbolo X animado** do site anterior, com as cores da nova paleta. Primeiro na seção "O nome"; depois movido para o **hero**, à direita do título (em teste). No hero, as faixas diagonais saem para não disputar espaço com o X; ficam as listras de fundo e um foco de luz. É uma exceção à opção (b) de movimento: as animações contínuas (órbitas, sinais, pulsos) ficam restritas a essa ilustração e são desativadas com "reduzir movimento".
