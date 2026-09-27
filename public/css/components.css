@@ -692,9 +692,21 @@
    RODAPÉ (kit)
    ========================================================================== */
 .rodape {
+  position: relative;
   padding-block: 56px var(--n3x-e-5);
   background: linear-gradient(to bottom, var(--c-fundo), var(--c-fundo-2) 45%);
   font-size: var(--n3x-t-pequeno);
+}
+/* Linha que marca o início do rodapé: mais visível no centro e sumindo
+   nas laterais, no mesmo espírito das transições suaves entre seções. */
+.rodape::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--c-linha-forte) 20%, var(--c-linha-forte) 80%, transparent);
 }
 .rodape__colunas {
   display: grid;
