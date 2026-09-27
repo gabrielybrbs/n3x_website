@@ -13,16 +13,19 @@
    ========================================================================== */
 .nome-topo {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 300px);
   gap: var(--n3x-e-6);
   align-items: center;
   margin-bottom: 40px;
 }
 .nome-topo .secao-cab { margin-bottom: 0; }
+/* O desenho tem ~8% de respiro interno (grade de pontos): a margem negativa
+   compensa esse vazio para o X não afastar a seção da anterior. */
+.nome-topo .simbolo-x { margin-block: -24px; }
 
 @media (max-width: 899px) {
   .nome-topo { grid-template-columns: 1fr; }
-  .nome-topo .simbolo-x { max-width: 320px; }
+  .nome-topo .simbolo-x { max-width: 240px; margin-block: -16px 0; }
 }
 
 /* ==========================================================================

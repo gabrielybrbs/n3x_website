@@ -390,7 +390,7 @@
    anterior, com as cores da nova paleta). As animações ficam pausadas até
    a figura aparecer na tela e são desativadas com "reduzir movimento".
    ========================================================================== */
-.simbolo-x { width: 100%; max-width: 420px; justify-self: center; }
+.simbolo-x { width: 100%; max-width: 300px; justify-self: center; }
 .simbolo-x svg { width: 100%; height: auto; overflow: visible; }
 
 .sx-cor-azul  { stop-color: var(--n3x-azul); }
