@@ -176,7 +176,7 @@ A referência é o [manual da marca](brand/n3x-identidade/n3x-manual-da-marca.ht
 | Rótulos e dados | IBM Plex Mono Medium 12 px, caixa alta, espaçamento 0,14em |
 | Grafismo | Cortes diagonais no ângulo do X (~54°) saindo por uma borda, sobre listras de no máximo 8% |
 | Ícones | Grade de 24 px, traço de 1,75 px, pontas retas (embutidos no bloco `cabecalho`) |
-| Logo | Secundário no cabeçalho (mín. 80 px), principal no rodapé (mín. 200 px). Nunca redesenhar, aplicar sombra ou brilho |
+| Logo | Principal (com slogan) no cabeçalho e no rodapé, mín. 200 px de largura. Nunca redesenhar, aplicar sombra ou brilho |
 
 Para usar um ícone:
 
@@ -190,7 +190,7 @@ Novos ícones podem vir do [Lucide](https://lucide.dev), com a mesma configuraç
 
 ### Cache de CSS e JS
 
-Os arquivos são chamados com `?v=4` (ex.: `css/components.css?v=4`) e a Vercel os guarda em cache por uma semana. **Ao alterar CSS ou JS, aumente o número** (`?v=5`) no bloco `head` de todas as páginas.
+Os arquivos são chamados com `?v=5` (ex.: `css/components.css?v=5`) e a Vercel os guarda em cache por uma semana. **Ao alterar CSS ou JS, aumente o número** (`?v=6`) no bloco `head` de todas as páginas.
 
 ### Adicionar uma seção
 
@@ -207,7 +207,23 @@ Os arquivos são chamados com `?v=4` (ex.: `css/components.css?v=4`) e a Vercel 
 
 ### Movimento
 
-Há só uma entrada suave das seções (`data-revelar`) e transições curtas de hover. Não há animações contínuas. Quem ativa "reduzir movimento" no sistema não vê nenhuma animação. Mantenha esse padrão.
+- Entrada suave das seções (`data-revelar`) e transições curtas de hover.
+- Única exceção com animação contínua: o **símbolo X** da seção "O nome" (órbitas, sinais e pulsos). As animações só começam quando ele aparece na tela.
+- Quem ativa "reduzir movimento" no sistema não vê nenhuma animação.
+
+Mantenha esse padrão e evite novas animações contínuas.
+
+### Focos de luz
+
+Manchas de luz radiais atrás das seções, ativadas pelo atributo `data-luz`:
+
+```html
+<section class="secao" data-luz="direita">        <!-- ciano, canto superior direito -->
+<section class="secao" data-luz="esquerda">       <!-- azul, canto inferior esquerdo -->
+<section class="secao" data-luz="direita-lilas">  <!-- lilás, canto superior direito -->
+```
+
+Cores e intensidade por tema ficam em `theme.css` (`--c-luz-*`). Alterne os lados entre seções vizinhas.
 
 ## Privacidade (LGPD)
 

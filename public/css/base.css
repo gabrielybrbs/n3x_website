@@ -7,10 +7,15 @@
 /* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 
+/* Altura do cabeçalho fixo: comporta o logo principal (mín. 200px de
+   largura pelo manual). Usada no cabeçalho, no menu mobile e nas âncoras. */
+:root { --altura-cabecalho: 100px; }
+@media (max-width: 599px) { :root { --altura-cabecalho: 92px; } }
+
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  scroll-padding-top: 88px;   /* compensa o cabeçalho fixo nas âncoras */
+  scroll-padding-top: calc(var(--altura-cabecalho) + 16px);   /* compensa o cabeçalho fixo nas âncoras */
 }
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }

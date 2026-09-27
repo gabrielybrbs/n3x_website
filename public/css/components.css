@@ -54,12 +54,19 @@
   display: flex;
   align-items: center;
   gap: var(--n3x-e-5);
-  height: 72px;
+  height: var(--altura-cabecalho);
 }
 
-/* logo secundário: mínimo de 80px na tela (manual) */
+/* logo principal (com slogan): mínimo de 200px na tela (manual) */
 .marca { display: inline-flex; flex-shrink: 0; }
-.marca img { width: 112px; height: auto; }
+.marca img { width: 200px; height: auto; }
+
+/* Celulares muito estreitos (< 360px): logo + 2 botões não cabem com 200px.
+   Exceção consciente ao tamanho mínimo, só nessa faixa de tela. */
+@media (max-width: 359px) {
+  .cabecalho__barra { gap: var(--n3x-e-3); }
+  .marca img { width: 176px; }
+}
 
 .nav { margin-left: auto; }
 .nav__lista { display: flex; align-items: center; gap: var(--n3x-e-2); }
@@ -121,7 +128,7 @@
   .nav {
     display: none;
     position: absolute;
-    top: 72px;
+    top: var(--altura-cabecalho);
     left: 0;
     right: 0;
     margin: 0;
@@ -199,6 +206,31 @@
   }
   .hero--pagina.grafismo::after { height: 130px; width: 150px; }
 }
+
+/* ==========================================================================
+   FOCOS DE LUZ — manchas radiais estáticas atrás do conteúdo das seções
+   Uso: <section data-luz="direita | esquerda | direita-lilas">
+   Cores e intensidade por tema em theme.css (--c-luz-*).
+   ========================================================================== */
+[data-luz] {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+[data-luz]::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: min(80vw, 820px);
+  aspect-ratio: 1;
+  pointer-events: none;
+  background: radial-gradient(closest-side, var(--luz-cor), transparent);
+}
+[data-luz="direita"]       { --luz-cor: var(--c-luz-ciano); }
+[data-luz="esquerda"]      { --luz-cor: var(--c-luz-azul); }
+[data-luz="direita-lilas"] { --luz-cor: var(--c-luz-lilas); }
+[data-luz^="direita"]::before  { right: -22%; top: -18%; }
+[data-luz="esquerda"]::before  { left: -24%; bottom: -30%; }
 
 /* ==========================================================================
    DESTAQUES — faixa de números logo após o hero
@@ -346,6 +378,111 @@
 
 @media (max-width: 759px) {
   .conceito { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   SÍMBOLO X — malha de conexões que se resolve no X (herdado do site
+   anterior, com as cores da nova paleta). As animações ficam pausadas até
+   a figura aparecer na tela e são desativadas com "reduzir movimento".
+   ========================================================================== */
+.simbolo-x { width: 100%; max-width: 420px; justify-self: center; }
+.simbolo-x svg { width: 100%; height: auto; overflow: visible; }
+
+.sx-cor-azul  { stop-color: var(--n3x-azul); }
+.sx-cor-ciano { stop-color: var(--n3x-ciano); }
+.sx-cor-lilas { stop-color: var(--n3x-lilas); }
+.sx-ponto { fill: var(--c-texto-2); }
+.sx-grade { opacity: .2; }
+
+.sx-orbita {
+  fill: none;
+  stroke: var(--c-linha-forte);
+  stroke-width: 1;
+  stroke-dasharray: 2 10;
+  transform-origin: 200px 200px;
+}
+.sx-orbita--externa { animation: sx-girar 32s linear infinite; }
+.sx-orbita--interna { animation: sx-girar 24s linear infinite reverse; opacity: .65; }
+
+/* desenho progressivo das linhas */
+.sx-linha {
+  fill: none;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: sx-desenhar 1.6s cubic-bezier(.4, 0, .2, 1) forwards;
+}
+.sx-malha { stroke: var(--c-linha-forte); stroke-width: 1; animation-delay: .05s; }
+.sx-x { stroke-width: 3; }
+.sx-x--a { stroke: url(#sx-degrade-a); animation-delay: .12s; }
+.sx-x--b { stroke: url(#sx-degrade-b); animation-delay: .28s; }
+
+.sx-brilho {
+  fill: none;
+  stroke: var(--n3x-ciano);
+  stroke-width: 9;
+  stroke-linecap: round;
+  opacity: .16;
+  filter: url(#sx-desfoque);
+}
+
+.sx-sinal {
+  fill: none;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-dasharray: 1 34;
+  opacity: .85;
+  animation: sx-sinal 3.2s linear infinite;
+}
+.sx-sinal--1 { stroke: var(--n3x-ciano); }
+.sx-sinal--2 { stroke: var(--n3x-lilas); animation-direction: reverse; animation-duration: 4s; }
+
+.sx-halo {
+  fill: var(--n3x-ciano);
+  opacity: .08;
+  filter: url(#sx-desfoque);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: sx-respirar 3.2s ease-in-out infinite;
+}
+.sx-anel { fill: var(--c-fundo); stroke: var(--n3x-ciano); stroke-width: 1; opacity: .8; }
+
+.sx-no {
+  opacity: 0;
+  animation: sx-surgir .5s ease forwards, sx-pulsar 3.2s ease-in-out infinite;
+}
+.sx-no--azul  { fill: var(--n3x-azul); }
+.sx-no--ciano { fill: var(--n3x-ciano); }
+.sx-no--lilas { fill: var(--n3x-lilas); }
+.sx-no--1 { animation-delay: 1.2s, 1.8s; }
+.sx-no--2 { animation-delay: 1.3s, 2.1s; }
+.sx-no--3 { animation-delay: 1.4s, 2.4s; }
+.sx-no--4 { animation-delay: 1.5s, 1.6s; }
+.sx-no--5 { animation-delay: 1.6s, 1.9s; }
+.sx-no--6 { animation-delay: 1.7s, 2.6s; }
+.sx-no--7 { animation-delay: 1.8s, 2.2s; }
+
+@keyframes sx-girar    { to { transform: rotate(360deg); } }
+@keyframes sx-desenhar { to { stroke-dashoffset: 0; } }
+@keyframes sx-sinal    { to { stroke-dashoffset: -210; } }
+@keyframes sx-surgir   { to { opacity: 1; } }
+@keyframes sx-respirar {
+  0%, 100% { transform: scale(.82); opacity: .06; }
+  50%      { transform: scale(1.2); opacity: .16; }
+}
+@keyframes sx-pulsar {
+  0%, 100% { r: 3.2; opacity: .9; }
+  50%      { r: 4.6; opacity: .5; }
+}
+
+/* só anima depois que a figura entra na tela (main.js adiciona .visivel) */
+.revelar-pronto .simbolo-x:not(.visivel) * { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  .simbolo-x * { animation: none !important; }
+  .sx-linha { stroke-dashoffset: 0; }
+  .sx-no { opacity: 1; }
 }
 
 /* ==========================================================================

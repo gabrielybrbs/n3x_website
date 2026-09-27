@@ -41,6 +41,11 @@
   /* grafismo */
   --c-listra:       rgba(47, 196, 228, .07);  /* máx. 8% (manual) */
 
+  /* focos de luz das seções */
+  --c-luz-ciano:    rgba(47, 196, 228, .11);
+  --c-luz-azul:     rgba(63, 99, 217, .16);
+  --c-luz-lilas:    rgba(126, 98, 224, .12);
+
   /* logos */
   --logo-escuro: block;
   --logo-claro:  none;
@@ -69,6 +74,10 @@
   --c-icone-fundo:  rgba(63, 99, 217, .08);
 
   --c-listra:       rgba(63, 99, 217, .06);
+
+  --c-luz-ciano:    rgba(47, 196, 228, .10);
+  --c-luz-azul:     rgba(63, 99, 217, .07);
+  --c-luz-lilas:    rgba(126, 98, 224, .06);
 
   --logo-escuro: none;
   --logo-claro:  block;

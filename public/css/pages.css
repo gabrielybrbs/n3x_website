@@ -9,6 +9,23 @@
 .secao--faixa { padding-block: var(--n3x-e-8); }
 
 /* ==========================================================================
+   O NOME — título à esquerda, símbolo X à direita
+   ========================================================================== */
+.nome-topo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
+  gap: var(--n3x-e-6);
+  align-items: center;
+  margin-bottom: var(--n3x-e-7);
+}
+.nome-topo .secao-cab { margin-bottom: 0; }
+
+@media (max-width: 899px) {
+  .nome-topo { grid-template-columns: 1fr; }
+  .nome-topo .simbolo-x { max-width: 320px; }
+}
+
+/* ==========================================================================
    SOBRE
    ========================================================================== */
 .sobre {

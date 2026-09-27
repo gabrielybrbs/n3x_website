@@ -27,14 +27,14 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="assets/fonts/archivo-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/ibm-plex-sans-latin-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/tokens.css?v=4">
-<link rel="stylesheet" href="css/fonts.css?v=4">
-<link rel="stylesheet" href="css/theme.css?v=4">
-<link rel="stylesheet" href="css/base.css?v=4">
-<link rel="stylesheet" href="css/components.css?v=4">
-<link rel="stylesheet" href="css/pages.css?v=4">
-<script src="js/tema-inicial.js?v=4"></script>
-<script src="js/main.js?v=4" defer></script>
+<link rel="stylesheet" href="css/tokens.css?v=5">
+<link rel="stylesheet" href="css/fonts.css?v=5">
+<link rel="stylesheet" href="css/theme.css?v=5">
+<link rel="stylesheet" href="css/base.css?v=5">
+<link rel="stylesheet" href="css/components.css?v=5">
+<link rel="stylesheet" href="css/pages.css?v=5">
+<script src="js/tema-inicial.js?v=5"></script>
+<script src="js/main.js?v=5" defer></script>
 <!-- ▲ BLOCO: head -->
 <script type="application/ld+json">
 {
@@ -96,8 +96,8 @@
 <header class="cabecalho">
   <div class="container cabecalho__barra">
     <a class="marca" href="#inicio" aria-label="N3X, início">
-      <img class="logo-escuro" src="assets/logo/n3x-logo-secundario-fundo-escuro.svg" alt="" width="112" height="39">
-      <img class="logo-claro" src="assets/logo/n3x-logo-secundario-fundo-claro.svg" alt="" width="112" height="39">
+      <img class="logo-escuro" src="assets/logo/n3x-logo-principal-fundo-escuro.svg" alt="" width="200" height="83">
+      <img class="logo-claro" src="assets/logo/n3x-logo-principal-fundo-claro.svg" alt="" width="200" height="83">
     </a>
     <nav class="nav" id="navegacao" aria-label="Principal">
       <ul class="nav__lista">
@@ -170,7 +170,7 @@
   <!-- ================================================================
        SERVIÇOS — cards do kit digital com a descrição de cada item
        ================================================================ -->
-  <section class="secao" id="servicos" aria-labelledby="servicos-titulo">
+  <section class="secao" id="servicos" aria-labelledby="servicos-titulo" data-luz="direita">
     <div class="container">
       <div class="secao-cab" data-revelar>
         <span class="rotulo">Serviços</span>
@@ -229,7 +229,7 @@
   </section>
 
   <!-- COMO FUNCIONA -->
-  <section class="secao secao--alt" id="processo" aria-labelledby="processo-titulo">
+  <section class="secao secao--alt" id="processo" aria-labelledby="processo-titulo" data-luz="esquerda">
     <div class="container">
       <div class="secao-cab" data-revelar>
         <span class="rotulo">Como funciona</span>
@@ -246,7 +246,7 @@
   </section>
 
   <!-- COMO TRABALHAMOS -->
-  <section class="secao" aria-labelledby="principios-titulo">
+  <section class="secao" aria-labelledby="principios-titulo" data-luz="direita-lilas">
     <div class="container">
       <div class="secao-cab" data-revelar>
         <span class="rotulo">Como trabalhamos</span>
@@ -289,7 +289,7 @@
   <!-- ================================================================
        SOBRE
        ================================================================ -->
-  <section class="secao secao--alt" id="sobre" aria-labelledby="sobre-titulo">
+  <section class="secao secao--alt" id="sobre" aria-labelledby="sobre-titulo" data-luz="esquerda">
     <div class="container sobre">
       <div class="prosa-curta" data-revelar>
         <span class="rotulo">Sobre</span>
@@ -318,13 +318,75 @@
     </div>
   </section>
 
-  <!-- O NOME — conceito do manual da marca -->
-  <section class="secao" id="nome" aria-labelledby="nome-titulo">
+  <!-- O NOME — conceito do manual da marca + símbolo X animado -->
+  <section class="secao" id="nome" aria-labelledby="nome-titulo" data-luz="direita">
     <div class="container">
-      <div class="secao-cab" data-revelar>
-        <span class="rotulo">O nome</span>
-        <h2 id="nome-titulo">Três letras, uma ideia</h2>
-        <p class="lede">A N3X une software, infraestrutura e monitoramento em uma só entrega. Cada parte do nome representa um compromisso com a forma como trabalhamos.</p>
+      <div class="nome-topo">
+        <div class="secao-cab" data-revelar>
+          <span class="rotulo">O nome</span>
+          <h2 id="nome-titulo">Três letras, uma ideia</h2>
+          <p class="lede">A N3X une software, infraestrutura e monitoramento em uma só entrega. Cada parte do nome representa um compromisso com a forma como trabalhamos.</p>
+        </div>
+
+        <!-- Símbolo X: malha de conexões que se resolve no X (execução).
+             Animação só começa quando a seção fica visível; desativada com
+             "reduzir movimento". Estilos em components.css > SÍMBOLO X. -->
+        <figure class="simbolo-x" data-revelar aria-hidden="true">
+          <svg viewBox="0 0 400 400">
+            <defs>
+              <linearGradient id="sx-degrade-a" x1="105" y1="105" x2="295" y2="295" gradientUnits="userSpaceOnUse">
+                <stop offset="0" class="sx-cor-azul"/>
+                <stop offset=".5" class="sx-cor-ciano"/>
+                <stop offset="1" class="sx-cor-lilas"/>
+              </linearGradient>
+              <linearGradient id="sx-degrade-b" x1="295" y1="105" x2="105" y2="295" gradientUnits="userSpaceOnUse">
+                <stop offset="0" class="sx-cor-lilas"/>
+                <stop offset=".5" class="sx-cor-ciano"/>
+                <stop offset="1" class="sx-cor-azul"/>
+              </linearGradient>
+              <pattern id="sx-pontos" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle class="sx-ponto" cx="1" cy="1" r="1"/>
+              </pattern>
+              <filter id="sx-desfoque" x="-60%" y="-60%" width="220%" height="220%">
+                <feGaussianBlur stdDeviation="5"/>
+              </filter>
+            </defs>
+
+            <rect class="sx-grade" x="20" y="20" width="360" height="360" rx="180" fill="url(#sx-pontos)"/>
+            <circle class="sx-orbita sx-orbita--externa" cx="200" cy="200" r="142"/>
+            <circle class="sx-orbita sx-orbita--interna" cx="200" cy="200" r="92"/>
+
+            <!-- circuitos externos conectam a malha ao núcleo -->
+            <path class="sx-linha sx-malha" d="M28 120 H78 L112 154"/>
+            <path class="sx-linha sx-malha" d="M372 118 H322 L288 152"/>
+            <path class="sx-linha sx-malha" d="M28 280 H78 L112 246"/>
+            <path class="sx-linha sx-malha" d="M372 282 H322 L288 248"/>
+            <path class="sx-linha sx-malha" d="M118 28 V72 L152 108"/>
+            <path class="sx-linha sx-malha" d="M282 372 V328 L248 292"/>
+
+            <!-- sinais percorrem dois circuitos em sentidos opostos -->
+            <path class="sx-sinal sx-sinal--1" d="M28 120 H78 L112 154 L200 242 L288 330 H350"/>
+            <path class="sx-sinal sx-sinal--2" d="M372 118 H322 L288 152 L200 240 L112 328 H50"/>
+
+            <!-- X central com dupla camada para profundidade -->
+            <path class="sx-brilho" d="M112 108 L292 292"/>
+            <path class="sx-brilho" d="M292 108 L108 292"/>
+            <path class="sx-linha sx-x sx-x--a" d="M112 108 L292 292"/>
+            <path class="sx-linha sx-x sx-x--b" d="M292 108 L108 292"/>
+
+            <circle class="sx-halo" cx="200" cy="200" r="24"/>
+            <circle class="sx-anel" cx="200" cy="200" r="12"/>
+            <circle class="sx-no sx-no--ciano sx-no--5" cx="200" cy="200" r="4"/>
+
+            <!-- nós nos pontos de conexão -->
+            <circle class="sx-no sx-no--azul sx-no--1" cx="112" cy="108" r="3.2"/>
+            <circle class="sx-no sx-no--lilas sx-no--2" cx="292" cy="108" r="3.2"/>
+            <circle class="sx-no sx-no--lilas sx-no--3" cx="292" cy="292" r="3.2"/>
+            <circle class="sx-no sx-no--azul sx-no--4" cx="108" cy="292" r="3.2"/>
+            <circle class="sx-no sx-no--ciano sx-no--6" cx="28" cy="120" r="2.6"/>
+            <circle class="sx-no sx-no--ciano sx-no--7" cx="372" cy="282" r="2.6"/>
+          </svg>
+        </figure>
       </div>
 
       <div class="conceito" data-revelar>
@@ -360,7 +422,7 @@
   <!-- ================================================================
        CONTATO
        ================================================================ -->
-  <section class="secao" id="contato" aria-labelledby="contato-titulo">
+  <section class="secao" id="contato" aria-labelledby="contato-titulo" data-luz="esquerda">
     <div class="container">
       <div class="secao-cab" data-revelar>
         <span class="rotulo">Contato</span>
