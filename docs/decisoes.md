@@ -29,7 +29,7 @@ Respostas às perguntas da auditoria (26/09/2026). Este é o documento de refer�
 - **Textos dos pilares e do conceito N/3/X:** valem os do manual e do kit digital.
 - **Seção "O que significa N3X":** permanece, mais abaixo na página. A N3X considera importante transmitir o significado do nome.
 - **Equipe:** sem seção por enquanto.
-- **Removidos em 27/09/2026:** a frase de pronúncia do nome ("nex" / "N-três-X") e o card "Atuação" da seção Contato. Macapá-AP e "todo o Brasil" continuam na seção Sobre e no rodapé.
+- **Removidos em 27/09/2026:** a frase de pronúncia do nome ("nex" / "N-três-X") e o card "Atuação" da seção Contato. Macapá-AP e "todo o Brasil" continuam na seção Sobre; no rodapé fica só "Macapá-AP".
 - **Clientes:** os logos ainda não foram entregues. A seção fica **pronta e oculta** até os arquivos chegarem (ver [plano](plano-implementacao.md#clientes)).
 - **Dados de demonstração:** a N3X autorizou gerar números e ofertas de exemplo, que **são fictícios** no momento. Eles ficam concentrados e marcados no código com `data-demo` para facilitar a troca. Ver a seção abaixo.
 
