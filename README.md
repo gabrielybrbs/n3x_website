@@ -190,7 +190,7 @@ Novos ícones podem vir do [Lucide](https://lucide.dev), com a mesma configuraç
 
 ### Cache de CSS e JS
 
-Os arquivos são chamados com `?v=5` (ex.: `css/components.css?v=5`) e a Vercel os guarda em cache por uma semana. **Ao alterar CSS ou JS, aumente o número** (`?v=6`) no bloco `head` de todas as páginas.
+Os arquivos são chamados com `?v=6` (ex.: `css/components.css?v=6`) e a Vercel os guarda em cache por uma semana. **Ao alterar CSS ou JS, aumente o número** (`?v=7`) no bloco `head` de todas as páginas.
 
 ### Adicionar uma seção
 

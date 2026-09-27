@@ -31,7 +31,8 @@ Respostas às perguntas da auditoria (26/09/2026). Este é o documento de refer�
 - **Equipe:** sem seção por enquanto.
 - **Ajustes visuais (27/09/2026), a pedido da N3X:**
   - **Logo com slogan no cabeçalho.** O manual recomenda a versão secundária (sem slogan) para cabeçalhos. A N3X optou pela principal, respeitando o mínimo de 200 px de largura; o cabeçalho passou a ter 100 px de altura (92 px no celular).
-  - **Focos de luz.** Manchas de luz radiais e estáticas nas seções após o hero, como no site anterior, em ciano, azul e um toque de lilás.
+  - **Focos de luz.** Manchas de luz radiais e estáticas nas seções após o hero, como no site anterior, em ciano, azul e um toque de lilás, afastadas das laterais e contidas na seção.
+  - **Sem linhas entre seções.** As bordas entre seções saíram; fundos alternados, rodapé e grafismo do hero passam de um para o outro em degradê.
   - **Símbolo X animado** do site anterior na seção "O nome", com as cores da nova paleta. É uma exceção à opção (b) de movimento: as animações contínuas (órbitas, sinais, pulsos) ficam restritas a essa ilustração, só começam quando ela aparece na tela e são desativadas com "reduzir movimento".
 - **Faixa de chamada (27/09/2026):** "Diagnóstico gratuito da sua infraestrutura" foi trocado por "Quer entender como a N3X pode se encaixar na sua operação?", com botão "Solicitar orçamento" (WhatsApp com mensagem pronta sobre orçamento). Deixou de ser dado de demonstração.
 - **Removidos em 27/09/2026:** a frase de pronúncia do nome ("nex" / "N-três-X") e o card "Atuação" da seção Contato. Macapá-AP e "todo o Brasil" continuam na seção Sobre; no rodapé fica só "Macapá-AP".

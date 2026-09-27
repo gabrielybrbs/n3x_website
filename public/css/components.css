@@ -163,11 +163,14 @@
   isolation: isolate;
   overflow: hidden;
   background-color: var(--c-fundo);
-  background-image: repeating-linear-gradient(
-    126deg,
-    var(--c-listra) 0 11px,
-    transparent 11px 97px
-  );
+  background-image:
+    /* as listras somem no fim do bloco, sem linha de corte */
+    linear-gradient(to bottom, transparent 55%, var(--c-fundo) 100%),
+    repeating-linear-gradient(
+      126deg,
+      var(--c-listra) 0 11px,
+      transparent 11px 97px
+    );
 }
 .grafismo::after {
   content: '';
@@ -178,6 +181,9 @@
   bottom: 0;
   width: min(46%, 560px);
   background: url('../assets/grafismo/cortes.svg') right center / auto 100% no-repeat;
+  /* as faixas se dissolvem na base do bloco, sem linha de corte */
+  -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
   pointer-events: none;
 }
 
@@ -215,30 +221,35 @@
 [data-luz] {
   position: relative;
   isolation: isolate;
-  overflow: hidden;
 }
+/* Elipse contida na altura da seção e afastada das laterais: a luz se
+   dissolve antes de chegar às bordas, sem criar linhas de corte. */
 [data-luz]::before {
   content: '';
   position: absolute;
   z-index: -1;
-  width: min(80vw, 820px);
-  aspect-ratio: 1;
+  top: 0;
+  bottom: 0;
+  width: min(62%, 860px);
   pointer-events: none;
   background: radial-gradient(closest-side, var(--luz-cor), transparent);
 }
 [data-luz="direita"]       { --luz-cor: var(--c-luz-ciano); }
 [data-luz="esquerda"]      { --luz-cor: var(--c-luz-azul); }
 [data-luz="direita-lilas"] { --luz-cor: var(--c-luz-lilas); }
-[data-luz^="direita"]::before  { right: -22%; top: -18%; }
-[data-luz="esquerda"]::before  { left: -24%; bottom: -30%; }
+[data-luz^="direita"]::before { right: 6%; }
+[data-luz="esquerda"]::before { left: 6%; }
+
+@media (max-width: 899px) {
+  [data-luz]::before { width: 100%; }
+  [data-luz^="direita"]::before { right: 0; }
+  [data-luz="esquerda"]::before { left: 0; }
+}
 
 /* ==========================================================================
    DESTAQUES — faixa de números logo após o hero
    ========================================================================== */
-.destaques-secao {
-  border-bottom: 1px solid var(--c-linha);
-  background: var(--c-fundo-2);
-}
+.destaques-secao { background: transparent; }
 .destaques {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -653,8 +664,7 @@
    ========================================================================== */
 .rodape {
   padding-block: var(--n3x-e-8) var(--n3x-e-5);
-  background: var(--c-fundo-2);
-  border-top: 1px solid var(--c-linha);
+  background: linear-gradient(to bottom, var(--c-fundo), var(--c-fundo-2) 45%);
   font-size: var(--n3x-t-pequeno);
 }
 .rodape__colunas {

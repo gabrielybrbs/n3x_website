@@ -87,10 +87,17 @@ p { text-wrap: pretty; }
 .secao { padding-block: var(--n3x-e-8); }
 @media (min-width: 900px) { .secao { padding-block: var(--n3x-e-9); } }
 
-.secao + .secao { border-top: 1px solid var(--c-linha); }
-.secao--alt { background: var(--c-fundo-2); }
-.secao--alt + .secao,
-.secao + .secao--alt { border-top: 0; }
+/* Seção alternada: o fundo mais profundo entra e sai em degradê, sem
+   linhas nem degraus de cor entre uma seção e outra. */
+.secao--alt {
+  background: linear-gradient(
+    to bottom,
+    var(--c-fundo) 0%,
+    var(--c-fundo-2) 22%,
+    var(--c-fundo-2) 78%,
+    var(--c-fundo) 100%
+  );
+}
 
 /* Cabeçalho de seção: rótulo + título + texto de apoio */
 .secao-cab {
