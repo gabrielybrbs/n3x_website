@@ -1,0 +1,43 @@
+/* N3X · tokens de marca (v1.0, setembro de 2026)
+   Fontes: Archivo (títulos), IBM Plex Sans (texto), IBM Plex Mono (dados).
+   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet"> */
+:root{
+  /* cores de marca */
+  --n3x-ciano:#2FC4E4;
+  --n3x-ciano-2:#36B8E6;
+  --n3x-azul:#3F63D9;
+  --n3x-lilas:#7E62E0;
+  --n3x-degrade:linear-gradient(180deg,#3F63D9 0%,#36B8E6 45%,#2FC4E4 100%);
+  /* neutros */
+  --n3x-grafite:#161B28;   /* fundo principal */
+  --n3x-grafite-2:#0F131D; /* fundo mais profundo */
+  --n3x-painel:#1A2030;    /* cards */
+  --n3x-painel-2:#212838;  /* hover */
+  --n3x-marinho:#22304F;   /* texto em fundo branco */
+  --n3x-aco:#5B6680;       /* texto secundário em fundo branco */
+  --n3x-nevoa:#EEF1F7;     /* texto em fundo escuro, fundos claros */
+  --n3x-texto-2:#A7B1C8;   /* texto secundário em fundo escuro */
+  --n3x-texto-3:#6F7A94;   /* legendas */
+  --n3x-linha:rgba(170,184,214,.14);
+  --n3x-linha-forte:rgba(170,184,214,.3);
+  /* estados */
+  --n3x-ok:#3CCB8C; --n3x-alerta:#F2B347; --n3x-critico:#EF5D5D;
+  /* tipografia */
+  --n3x-f-titulo:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --n3x-f-texto:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;
+  --n3x-f-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  --n3x-largura-titulo:112%; /* font-stretch dos títulos */
+  --n3x-t-h1:clamp(36px,5vw,56px);
+  --n3x-t-h2:clamp(26px,3.4vw,32px);
+  --n3x-t-h3:20px;
+  --n3x-t-corpo:17px;
+  --n3x-t-pequeno:14px;
+  --n3x-t-rotulo:12px;
+  /* espaçamento (base 4) */
+  --n3x-e-1:4px;--n3x-e-2:8px;--n3x-e-3:12px;--n3x-e-4:16px;--n3x-e-5:24px;--n3x-e-6:32px;--n3x-e-7:48px;--n3x-e-8:72px;--n3x-e-9:112px;
+  /* forma */
+  --n3x-raio-sm:4px;--n3x-raio-md:8px;--n3x-raio-lg:14px;
+  --n3x-sombra:0 18px 40px rgba(0,0,0,.35);
+  --n3x-foco:0 0 0 3px rgba(47,196,228,.45);
+  --n3x-largura-max:1180px;
+}
